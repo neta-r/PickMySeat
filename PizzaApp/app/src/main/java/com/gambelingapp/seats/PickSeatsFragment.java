@@ -1,4 +1,4 @@
-package com.gambelingapp;
+package com.gambelingapp.seats;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -8,10 +8,16 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+
+import com.gambelingapp.menu.Menu;
+import com.gambelingapp.R;
 
 
-public class PickSeats extends AppCompatActivity implements View.OnClickListener {
+public class PickSeatsFragment extends Fragment implements View.OnClickListener {
     String choice=null;
     int numberOfDiners = 0;
 
@@ -20,31 +26,30 @@ public class PickSeats extends AppCompatActivity implements View.OnClickListener
 
     @SuppressLint("MissingInflatedId")
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.pick_seats);
-        next= findViewById(R.id.Next);
-        skip= findViewById(R.id.Skip);
-        s1 = findViewById(R.id.Seat1);
-        s2 = findViewById(R.id.Seat2);
-        s3 = findViewById(R.id.Seat3);
-        s4 = findViewById(R.id.Seat4);
-        s5 = findViewById(R.id.Seat5);
-        s6 = findViewById(R.id.Seat6);
-        s7 = findViewById(R.id.Seat7);
-        t1 = findViewById(R.id.Table1);
-        t2 = findViewById(R.id.Table2);
-        t3 = findViewById(R.id.Table3);
-        t4 = findViewById(R.id.Table4);
-        t5 = findViewById(R.id.Table5);
-        t6 = findViewById(R.id.Table6);
-        t7 = findViewById(R.id.Table7);
-        t8 = findViewById(R.id.Table8);
-        t9 = findViewById(R.id.Table9);
-        t10 = findViewById(R.id.Table10);
-        t11 = findViewById(R.id.Table11);
-        t12 = findViewById(R.id.Table12);
-        t13 = findViewById(R.id.Table13);
+        next= view.findViewById(R.id.Next);
+        skip= view.findViewById(R.id.Skip);
+        s1 = view.findViewById(R.id.Seat1);
+        s2 = view.findViewById(R.id.Seat2);
+        s3 = view.findViewById(R.id.Seat3);
+        s4 = view.findViewById(R.id.Seat4);
+        s5 = view.findViewById(R.id.Seat5);
+        s6 = view.findViewById(R.id.Seat6);
+        s7 = view.findViewById(R.id.Seat7);
+        t1 = view.findViewById(R.id.Table1);
+        t2 = view.findViewById(R.id.Table2);
+        t3 = view.findViewById(R.id.Table3);
+        t4 = view.findViewById(R.id.Table4);
+        t5 = view.findViewById(R.id.Table5);
+        t6 = view.findViewById(R.id.Table6);
+        t7 = view.findViewById(R.id.Table7);
+        t8 = view.findViewById(R.id.Table8);
+        t9 = view.findViewById(R.id.Table9);
+        t10 = view.findViewById(R.id.Table10);
+        t11 = view.findViewById(R.id.Table11);
+        t12 = view.findViewById(R.id.Table12);
+        t13 = view.findViewById(R.id.Table13);
         s1.setOnClickListener(this);
         s2.setOnClickListener(this);
         s3.setOnClickListener(this);
@@ -74,16 +79,16 @@ public class PickSeats extends AppCompatActivity implements View.OnClickListener
     public void onClick(View v) {
         if (v == next) {
             if (choice!=null) {
-                Intent i = new Intent(getApplicationContext(), BookReservation.class);
-                i.putExtra("Diners", numberOfDiners);
-                startActivity(i);
+//                Intent i = new Intent(getApplicationContext(), BookReservationFragment.class);
+//                i.putExtra("Diners", numberOfDiners);
+//                startActivity(i);
             }
             //todo: else - dialog box saying "pick table or skip this step"
         }
         if (v == skip) {
-            Intent i = new Intent(getApplicationContext(), Menu.class);
-            i.putExtra("Diners",-1);
-            startActivity(i);
+//            Intent i = new Intent(getApplicationContext(), Menu.class);
+//            i.putExtra("Diners",-1);
+//            startActivity(i);
         }
         if (v == s1) {
             choice = "s1";

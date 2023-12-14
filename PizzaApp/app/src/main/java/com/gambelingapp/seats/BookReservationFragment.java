@@ -1,4 +1,4 @@
-package com.gambelingapp;
+package com.gambelingapp.seats;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
@@ -13,12 +13,17 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TimePicker;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+
+import com.gambelingapp.R;
 
 import java.util.Calendar;
 
 
-public class BookReservation extends AppCompatActivity implements View.OnClickListener {
+public class BookReservationFragment extends Fragment implements View.OnClickListener {
     Button Date, Time, Reserve;
     EditText txtDate, txtTime, Name, NumberOfDiners;
 
@@ -29,20 +34,19 @@ public class BookReservation extends AppCompatActivity implements View.OnClickLi
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.book_reservation);
 
-        Date = findViewById(R.id.DateBtn);
-        Time = findViewById(R.id.TimeBtn);
-        Plus = findViewById(R.id.PlusBtn);
-        Minus = findViewById(R.id.MinusBtn);
-        Reserve = findViewById(R.id.Reserve);
+        Date = view.findViewById(R.id.DateBtn);
+        Time = view.findViewById(R.id.TimeBtn);
+        Plus = view.findViewById(R.id.PlusBtn);
+        Minus = view.findViewById(R.id.MinusBtn);
+        Reserve = view.findViewById(R.id.Reserve);
 
-        txtDate = findViewById(R.id.Date);
-        txtTime = findViewById(R.id.Time);
-        Name = findViewById(R.id.Name);
-        NumberOfDiners = findViewById(R.id.NumberOfDiners);
+        txtDate = view.findViewById(R.id.Date);
+        txtTime = view.findViewById(R.id.Time);
+        Name = view.findViewById(R.id.Name);
+        NumberOfDiners = view.findViewById(R.id.NumberOfDiners);
         NumberOfDiners.setText(Diners);
 
         Date.setOnClickListener(this);
@@ -77,7 +81,7 @@ public class BookReservation extends AppCompatActivity implements View.OnClickLi
             int mDay = c.get(Calendar.DAY_OF_MONTH);
 
 
-            DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+            DatePickerDialog datePickerDialog = new DatePickerDialog(getView().getContext(),
                     new DatePickerDialog.OnDateSetListener() {
                         @Override
                         public void onDateSet(DatePicker view, int year,
@@ -97,7 +101,7 @@ public class BookReservation extends AppCompatActivity implements View.OnClickLi
             int mMinute = c.get(Calendar.MINUTE);
 
             // Launch Time Picker Dialog
-            TimePickerDialog timePickerDialog = new TimePickerDialog(this,
+            TimePickerDialog timePickerDialog = new TimePickerDialog(getView().getContext(),
                     new TimePickerDialog.OnTimeSetListener() {
 
                         @SuppressLint("SetTextI18n")

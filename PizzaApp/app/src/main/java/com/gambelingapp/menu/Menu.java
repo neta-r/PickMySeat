@@ -1,4 +1,4 @@
-package com.gambelingapp;
+package com.gambelingapp.menu;
 
 import androidx.appcompat.app.AppCompatActivity;
 
