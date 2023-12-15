@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/sketch"
-    >
+    android:background="@drawable/sketch">
 
     <Button
         android:id="@+id/Skip"
@@ -38,34 +37,6 @@
         app:layout_constraintVertical_bias="0.975" />
 
     <ImageButton
-        android:id="@+id/Table3"
-        android:layout_width="52dp"
-        android:layout_height="60dp"
-        android:alpha="0.0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.807"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.807"
-        app:srcCompat="@drawable/img"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
-        android:id="@+id/Seat5"
-        android:layout_width="24dp"
-        android:layout_height="20dp"
-        android:alpha="0.0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.167"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.344"
-        app:srcCompat="@drawable/img"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
         android:id="@+id/Seat1"
         android:layout_width="27dp"
         android:layout_height="21dp"
@@ -76,34 +47,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.223"
-        app:srcCompat="@drawable/img"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
-        android:id="@+id/Table1"
-        android:layout_width="52dp"
-        android:layout_height="60dp"
-        android:alpha="0.0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.807"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.628"
-        app:srcCompat="@drawable/img"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
-        android:id="@+id/Table6"
-        android:layout_width="67dp"
-        android:layout_height="53dp"
-        android:alpha="0.0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.604"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.706"
         app:srcCompat="@drawable/img"
         tools:ignore="MissingConstraints" />
 
@@ -122,9 +65,23 @@
         tools:ignore="MissingConstraints" />
 
     <ImageButton
-        android:id="@+id/Seat4"
+        android:id="@+id/Seat3"
         android:layout_width="23dp"
-        android:layout_height="19dp"
+        android:layout_height="20dp"
+        android:alpha="0.0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.141"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.289"
+        app:srcCompat="@drawable/img"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/Seat4"
+        android:layout_width="17dp"
+        android:layout_height="12dp"
         android:alpha="0.0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -136,86 +93,16 @@
         tools:ignore="MissingConstraints" />
 
     <ImageButton
-        android:id="@+id/Table2"
-        android:layout_width="52dp"
-        android:layout_height="60dp"
+        android:id="@+id/Seat5"
+        android:layout_width="23dp"
+        android:layout_height="15dp"
         android:alpha="0.0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.807"
+        app:layout_constraintHorizontal_bias="0.167"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.71"
-        app:srcCompat="@drawable/img"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
-        android:id="@+id/Table11"
-        android:layout_width="31dp"
-        android:layout_height="59dp"
-        android:alpha="0.0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.392"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.816"
-        app:srcCompat="@drawable/img"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
-        android:id="@+id/Table8"
-        android:layout_width="31dp"
-        android:layout_height="59dp"
-        android:alpha="0.0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.392"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.54"
-        app:srcCompat="@drawable/img"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
-        android:id="@+id/Table5"
-        android:layout_width="67dp"
-        android:layout_height="53dp"
-        android:alpha="0.0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.604"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.619"
-        app:srcCompat="@drawable/img"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
-        android:id="@+id/Seat7"
-        android:layout_width="24dp"
-        android:layout_height="20dp"
-        android:alpha="0.0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.279"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.407"
-        app:srcCompat="@drawable/img"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
-        android:id="@+id/Table12"
-        android:layout_width="77dp"
-        android:layout_height="38dp"
-        android:alpha="0.0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.194"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.712"
+        app:layout_constraintVertical_bias="0.344"
         app:srcCompat="@drawable/img"
         tools:ignore="MissingConstraints" />
 
@@ -234,30 +121,101 @@
         tools:ignore="MissingConstraints" />
 
     <ImageButton
-        android:id="@+id/Table9"
-        android:layout_width="31dp"
-        android:layout_height="59dp"
+        android:id="@+id/Seat7"
+        android:layout_width="24dp"
+        android:layout_height="20dp"
         android:alpha="0.0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.392"
+        app:layout_constraintHorizontal_bias="0.279"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.629"
+        app:layout_constraintVertical_bias="0.407"
         app:srcCompat="@drawable/img"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
-        android:id="@+id/Table13"
-        android:layout_width="77dp"
-        android:layout_height="38dp"
+        android:id="@+id/Table1"
+        android:layout_width="52dp"
+        android:layout_height="60dp"
         android:alpha="0.0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.194"
+        app:layout_constraintHorizontal_bias="0.807"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.822"
+        app:layout_constraintVertical_bias="0.628"
+        app:srcCompat="@drawable/img"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/Table2"
+        android:layout_width="52dp"
+        android:layout_height="60dp"
+        android:alpha="0.0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.807"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.71"
+        app:srcCompat="@drawable/img"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/Table3"
+        android:layout_width="52dp"
+        android:layout_height="60dp"
+        android:alpha="0.0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.807"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.807"
+        app:srcCompat="@drawable/img"
+        tools:ignore="MissingConstraints" />
+
+
+    <ImageButton
+        android:id="@+id/Table4"
+        android:layout_width="67dp"
+        android:layout_height="53dp"
+        android:alpha="0.0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.604"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.528"
+        app:srcCompat="@drawable/img"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/Table5"
+        android:layout_width="67dp"
+        android:layout_height="53dp"
+        android:alpha="0.0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.604"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.619"
+        app:srcCompat="@drawable/img"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/Table6"
+        android:layout_width="67dp"
+        android:layout_height="53dp"
+        android:alpha="0.0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.604"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.706"
         app:srcCompat="@drawable/img"
         tools:ignore="MissingConstraints" />
 
@@ -276,16 +234,30 @@
         tools:ignore="MissingConstraints" />
 
     <ImageButton
-        android:id="@+id/Seat3"
-        android:layout_width="23dp"
-        android:layout_height="20dp"
+        android:id="@+id/Table8"
+        android:layout_width="31dp"
+        android:layout_height="59dp"
         android:alpha="0.0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.141"
+        app:layout_constraintHorizontal_bias="0.392"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.289"
+        app:layout_constraintVertical_bias="0.54"
+        app:srcCompat="@drawable/img"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/Table9"
+        android:layout_width="31dp"
+        android:layout_height="59dp"
+        android:alpha="0.0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.392"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.629"
         app:srcCompat="@drawable/img"
         tools:ignore="MissingConstraints" />
 
@@ -304,16 +276,45 @@
         tools:ignore="MissingConstraints" />
 
     <ImageButton
-        android:id="@+id/Table4"
-        android:layout_width="67dp"
-        android:layout_height="53dp"
+        android:id="@+id/Table11"
+        android:layout_width="31dp"
+        android:layout_height="59dp"
         android:alpha="0.0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.604"
+        app:layout_constraintHorizontal_bias="0.392"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.528"
+        app:layout_constraintVertical_bias="0.816"
+        app:srcCompat="@drawable/img"
+        tools:ignore="MissingConstraints" />
+
+
+    <ImageButton
+        android:id="@+id/Table12"
+        android:layout_width="77dp"
+        android:layout_height="38dp"
+        android:alpha="0.0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.194"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.712"
+        app:srcCompat="@drawable/img"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/Table13"
+        android:layout_width="77dp"
+        android:layout_height="38dp"
+        android:alpha="0.0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.194"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.822"
         app:srcCompat="@drawable/img"
         tools:ignore="MissingConstraints" />
 

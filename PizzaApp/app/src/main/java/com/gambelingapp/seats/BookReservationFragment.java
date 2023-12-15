@@ -17,13 +17,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import com.gambelingapp.R;
 
 import java.util.Calendar;
 
 
-public class BookReservationFragment extends Fragment implements View.OnClickListener {
+public class BookReservationFragment extends Fragment {
     Button Date, Time, Reserve;
     EditText txtDate, txtTime, Name, NumberOfDiners;
 
@@ -32,7 +33,9 @@ public class BookReservationFragment extends Fragment implements View.OnClickLis
     int Diners = 0;
     TextWatcher tt = null;
 
-
+    public BookReservationFragment() {
+        super(R.layout.fragment_book_reservation);
+    }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,13 +50,7 @@ public class BookReservationFragment extends Fragment implements View.OnClickLis
         txtTime = view.findViewById(R.id.Time);
         Name = view.findViewById(R.id.Name);
         NumberOfDiners = view.findViewById(R.id.NumberOfDiners);
-        NumberOfDiners.setText(Diners);
-
-        Date.setOnClickListener(this);
-        Time.setOnClickListener(this);
-        Reserve.setOnClickListener(this);
-        Plus.setOnClickListener(this);
-        Minus.setOnClickListener(this);
+        NumberOfDiners.setText(String.valueOf(Diners));
 
         tt = new TextWatcher() {
             public void afterTextChanged(Editable s) {
@@ -70,60 +67,65 @@ public class BookReservationFragment extends Fragment implements View.OnClickLis
             }
         };
         Name.addTextChangedListener(tt);
-    }
 
-    @Override
-    public void onClick(View v) {
-        if (v == Date) {
-            final Calendar c = Calendar.getInstance();
-            int mYear = c.get(Calendar.YEAR);
-            int mMonth = c.get(Calendar.MONTH);
-            int mDay = c.get(Calendar.DAY_OF_MONTH);
+        Minus.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if (Diners > 0) {
+                    Diners--;
+                    NumberOfDiners.setText(Diners);
+                }
+            }});
 
-
-            DatePickerDialog datePickerDialog = new DatePickerDialog(getView().getContext(),
-                    new DatePickerDialog.OnDateSetListener() {
-                        @Override
-                        public void onDateSet(DatePicker view, int year,
-                                              int monthOfYear, int dayOfMonth) {
-
-                            txtDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
-
-                        }
-                    }, mYear, mMonth, mDay);
-            datePickerDialog.show();
-        }
-        if (v == Time) {
-
-            // Get Current Time
-            final Calendar c = Calendar.getInstance();
-            int mHour = c.get(Calendar.HOUR_OF_DAY);
-            int mMinute = c.get(Calendar.MINUTE);
-
-            // Launch Time Picker Dialog
-            TimePickerDialog timePickerDialog = new TimePickerDialog(getView().getContext(),
-                    new TimePickerDialog.OnTimeSetListener() {
-
-                        @SuppressLint("SetTextI18n")
-                        @Override
-                        public void onTimeSet(TimePicker view, int hourOfDay,
-                                              int minute) {
-
-                            txtTime.setText(hourOfDay + ":" + minute);
-                        }
-                    }, mHour, mMinute, false);
-            timePickerDialog.show();
-        }
-        if (v == Minus) {
-            if (Diners > 0) {
-                Diners--;
+        Plus.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Diners++;
                 NumberOfDiners.setText(Diners);
-            }
-        }
-        if (v == Plus) {
-            Diners++;
-            NumberOfDiners.setText(Diners);
-        }
+            }});
+        Date.setOnClickListener(new View.OnClickListener() {
+
+                                    @Override
+                                    public void onClick(View v) {
+//                                        final Calendar c = Calendar.getInstance();
+//                                        int mYear = c.get(Calendar.YEAR);
+//                                        int mMonth = c.get(Calendar.MONTH);
+//                                        int mDay = c.get(Calendar.DAY_OF_MONTH);
+//
+//
+//                                        DatePickerDialog datePickerDialog = new DatePickerDialog(getView().getContext(),
+//                                                new DatePickerDialog.OnDateSetListener() {
+//                                                    @Override
+//                                                    public void onDateSet(DatePicker view, int year,
+//                                                                          int monthOfYear, int dayOfMonth) {
+//
+//                                                        txtDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+//
+//                                                    }
+//                                                }, mYear, mMonth, mDay);
+//                                        datePickerDialog.show();
+                                    }});
+
+        Time.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+//                    final Calendar c = Calendar.getInstance();
+//                    int mHour = c.get(Calendar.HOUR_OF_DAY);
+//                    int mMinute = c.get(Calendar.MINUTE);
+//
+//                    // Launch Time Picker Dialog
+//                    TimePickerDialog timePickerDialog = new TimePickerDialog(getView().getContext(),
+//                            new TimePickerDialog.OnTimeSetListener() {
+//
+//                                @SuppressLint("SetTextI18n")
+//                                @Override
+//                                public void onTimeSet(TimePicker view, int hourOfDay,
+//                                                      int minute) {
+//
+//                                    txtTime.setText(hourOfDay + ":" + minute);
+//                                }
+//                            }, mHour, mMinute, false);
+//                    timePickerDialog.show();
+                }});
 
         //todo:if (v == Reserve) {
         // enter a db connection and check reservation info

@@ -16,12 +16,12 @@ import com.gambelingapp.R;
 
 public class ReservationSuccessFragment extends Fragment implements View.OnClickListener {
     Button Menu;
-
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_main,container,false);        super.onCreate(savedInstanceState);
-        Menu = view.findViewById(R.id.Menu);
+    public ReservationSuccessFragment() {
+        super(R.layout.fragment_reservation_seucsess);
+    }
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        Menu = (Button) view.findViewById(R.id.Menu);
         Menu.setOnClickListener(this);
-        return view;
     }
 
     @Override
