@@ -19,6 +19,10 @@
         <action
             android:id="@+id/action_bookReservationFragment_to_reservationSuccessFragment"
             app:destination="@id/reservationSuccessFragment" />
+        <argument
+            android:name="NumberOfDinersSelected"
+            app:argType="integer"
+            android:defaultValue="-1" />
     </fragment>
     <fragment
         android:id="@+id/reservationSuccessFragment"

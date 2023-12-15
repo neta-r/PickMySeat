@@ -6,7 +6,9 @@ import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -25,6 +27,8 @@ import java.util.Calendar;
 
 
 public class BookReservationFragment extends Fragment {
+
+    int SelectedNumberOfDiners = -1;
     Button Date, Time, Reserve;
     EditText txtDate, txtTime, Name, NumberOfDiners;
 
@@ -132,6 +136,16 @@ public class BookReservationFragment extends Fragment {
         //Intent i = new Intent(getApplicationContext(), PickSeats.class);
         //startActivity(i);
         //}
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        if (getArguments()!=null) {
+            BookReservationFragmentArgs args = BookReservationFragmentArgs.fromBundle(getArguments());
+            SelectedNumberOfDiners = args.getNumberOfDinersSelected();
+        }
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
 }
 
