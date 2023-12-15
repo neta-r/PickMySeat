@@ -11,6 +11,18 @@
         <action
             android:id="@+id/action_pickSeatsFragment_to_reservationSuccessFragment"
             app:destination="@id/reservationSuccessFragment" />
+        <argument
+            android:name="Name"
+            app:argType="string" />
+        <argument
+            android:name="NumberOfDiners"
+            app:argType="integer" />
+        <argument
+            android:name="Date"
+            app:argType="string" />
+        <argument
+            android:name="Time"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/bookReservationFragment"

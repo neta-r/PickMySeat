@@ -49,6 +49,11 @@ public class BookReservationFragment extends Fragment {
     int day = -1;
     int  hour = -1;
     int minute = -1;
+
+    String strDate = "";
+    String  strTime = "";
+    String name = "";
+
     public BookReservationFragment() {
         super(R.layout.fragment_book_reservation);
     }
@@ -81,6 +86,7 @@ public class BookReservationFragment extends Fragment {
                 Name.removeTextChangedListener(tt);
                 Name.setText(Name.getText().toString());
                 Name.addTextChangedListener(tt);
+                name = Name.getText().toString();
             }
         };
         Name.addTextChangedListener(tt);
@@ -125,7 +131,8 @@ public class BookReservationFragment extends Fragment {
                                 String y = Integer.toString(year);
                                 if (dayOfMonth<10) d ="0"+Integer.toString(dayOfMonth);
                                 if (monthOfYear<10) m="0"+Integer.toString(monthOfYear);
-                                txtDate.setText(d + "-" + m + "-" + y);
+                                strDate = d + "-" + m + "-" + y;
+                                txtDate.setText(strDate);
                             }
                         }, year, month, day);
                 datePickerDialog.show();
@@ -148,8 +155,9 @@ public class BookReservationFragment extends Fragment {
                             @Override
                             public void onTimeSet(TimePicker view, int hourOfDay,
                                                   int minute) {
-                                if (minute<10) txtTime.setText(hourOfDay + ":0" + minute);
-                                else txtTime.setText(hourOfDay + ":" + minute);
+                                if (minute<10) strTime=hourOfDay + ":0" + minute;
+                                else strTime=hourOfDay + ":" + minute;
+                                txtTime.setText(strTime);
                             }
                         }, hour, minute, false);
                 timePickerDialog.show();
@@ -167,6 +175,11 @@ public class BookReservationFragment extends Fragment {
                                            } else if (Name.getText().toString().equals("")) {
                                                Toast.makeText(requireActivity().getApplicationContext(), "Type name", Toast.LENGTH_SHORT).show();
                                            } else {
+                                               BookReservationFragmentDirections.ActionBookReservationFragmentToPickSeatsFragment action =BookReservationFragmentDirections.actionBookReservationFragmentToPickSeatsFragment(name, Diners, strDate, strTime);
+                                               action.setName(name);
+                                               action.setNumberOfDiners(Diners);
+                                               action.setDate(strDate);
+                                               action.setTime(strTime);
                                                Navigation.findNavController(view).navigate(R.id.action_bookReservationFragment_to_pickSeatsFragment);
                                            }
                                        }
