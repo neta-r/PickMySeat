@@ -186,15 +186,5 @@ public class BookReservationFragment extends Fragment {
                                    }
         );
     }
-
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        if (getArguments() != null) {
-            BookReservationFragmentArgs args = BookReservationFragmentArgs.fromBundle(getArguments());
-            SelectedNumberOfDiners = args.getNumberOfDinersSelected();
-        }
-        return super.onCreateView(inflater, container, savedInstanceState);
-    }
 }
 

@@ -28,10 +28,6 @@
         android:id="@+id/bookReservationFragment"
         android:name="com.gambelingapp.seats.BookReservationFragment"
         android:label="BookReservationFragment" >
-        <argument
-            android:name="NumberOfDinersSelected"
-            app:argType="integer"
-            android:defaultValue="-1" />
         <action
             android:id="@+id/action_bookReservationFragment_to_pickSeatsFragment"
             app:destination="@id/pickSeatsFragment" />
