@@ -1,6 +1,16 @@
 plugins {
     id("com.android.application")
+    id("androidx.navigation.safeargs")
+}
 
+buildscript {
+    repositories {
+        google()
+    }
+    dependencies {
+        val nav_version = "2.7.6"
+        classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version")
+    }
 }
 
 android {
@@ -47,4 +57,5 @@ dependencies {
             because("kotlin-stdlib-jdk8 is now a part of kotlin-stdlib")
         }
     }
+
 }
