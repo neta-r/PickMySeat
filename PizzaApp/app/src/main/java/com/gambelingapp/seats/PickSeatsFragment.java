@@ -3,7 +3,9 @@ package com.gambelingapp.seats;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 
@@ -23,33 +25,34 @@ public class PickSeatsFragment extends Fragment implements View.OnClickListener 
 
     Button next,skip;
     ImageButton s1, s2, s3, s4, s5, s6, s7, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13;
-
+    public PickSeatsFragment() {
+        super(R.layout.fragment_pick_seats);
+    }
     @SuppressLint("MissingInflatedId")
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         next= view.findViewById(R.id.Next);
         skip= view.findViewById(R.id.Skip);
-        s1 = view.findViewById(R.id.Seat1);
-        s2 = view.findViewById(R.id.Seat2);
-        s3 = view.findViewById(R.id.Seat3);
-        s4 = view.findViewById(R.id.Seat4);
-        s5 = view.findViewById(R.id.Seat5);
-        s6 = view.findViewById(R.id.Seat6);
-        s7 = view.findViewById(R.id.Seat7);
-        t1 = view.findViewById(R.id.Table1);
-        t2 = view.findViewById(R.id.Table2);
-        t3 = view.findViewById(R.id.Table3);
-        t4 = view.findViewById(R.id.Table4);
-        t5 = view.findViewById(R.id.Table5);
-        t6 = view.findViewById(R.id.Table6);
-        t7 = view.findViewById(R.id.Table7);
-        t8 = view.findViewById(R.id.Table8);
-        t9 = view.findViewById(R.id.Table9);
-        t10 = view.findViewById(R.id.Table10);
-        t11 = view.findViewById(R.id.Table11);
-        t12 = view.findViewById(R.id.Table12);
-        t13 = view.findViewById(R.id.Table13);
+        s1 = (ImageButton)view.findViewById(R.id.Seat1);
+        s2 = (ImageButton)view.findViewById(R.id.Seat2);
+        s3 = (ImageButton)view.findViewById(R.id.Seat3);
+        s4 = (ImageButton)view.findViewById(R.id.Seat4);
+        s5 = (ImageButton)view.findViewById(R.id.Seat5);
+        s6 = (ImageButton)view.findViewById(R.id.Seat6);
+        s7 = (ImageButton)view.findViewById(R.id.Seat7);
+        t1 = (ImageButton)view.findViewById(R.id.Table1);
+        t2 = (ImageButton)view.findViewById(R.id.Table2);
+        t3 = (ImageButton)view.findViewById(R.id.Table3);
+        t4 = (ImageButton)view.findViewById(R.id.Table4);
+        t5 = (ImageButton)view.findViewById(R.id.Table5);
+        t6 = (ImageButton)view.findViewById(R.id.Table6);
+        t7 = (ImageButton)view.findViewById(R.id.Table7);
+        t8 = (ImageButton)view.findViewById(R.id.Table8);
+        t9 = (ImageButton)view.findViewById(R.id.Table9);
+        t10 = (ImageButton)view.findViewById(R.id.Table10);
+        t11 = (ImageButton)view.findViewById(R.id.Table11);
+        t12 = (ImageButton)view.findViewById(R.id.Table12);
+        t13 = (ImageButton)view.findViewById(R.id.Table13);
         s1.setOnClickListener(this);
         s2.setOnClickListener(this);
         s3.setOnClickListener(this);
@@ -71,8 +74,6 @@ public class PickSeatsFragment extends Fragment implements View.OnClickListener 
         t11.setOnClickListener(this);
         t12.setOnClickListener(this);
         t13.setOnClickListener(this);
-
-
     }
 
     @Override
