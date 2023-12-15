@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -75,19 +76,25 @@ public class BookReservationFragment extends Fragment {
         };
         Name.addTextChangedListener(tt);
 
-//        Minus.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                if (Diners > 0) {
-//                    Diners--;
-//                    NumberOfDiners.setText(Diners);
-//                }
-//            }});
-//
-//        Plus.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                Diners++;
-//                NumberOfDiners.setText(Diners);
-//            }});
+        Minus.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
+            public void onClick(View v) {
+                if (Diners > 0) {
+                    Diners--;
+                    NumberOfDiners.setText(Integer.toString(Diners));
+                }
+            }});
+
+        Plus.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if (Diners<=5) {
+                    Diners++;
+                    NumberOfDiners.setText(Integer.toString(Diners));
+                }
+                else{
+                    Toast.makeText(requireActivity().getApplicationContext(), "Reservations are up to 6 people!", Toast.LENGTH_SHORT).show();
+                }
+            }});
         Date.setOnClickListener(new View.OnClickListener() {
 
                                     @Override

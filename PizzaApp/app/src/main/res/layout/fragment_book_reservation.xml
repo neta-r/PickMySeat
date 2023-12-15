@@ -4,56 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
     android:background="@drawable/background">
 
     <!-- 40dp padding from all the sides of a date picker -->
 
-
-    <ImageButton
-        android:id="@+id/MinusBtn"
-        android:layout_width="43dp"
-        android:layout_height="42dp"
-        android:background="#0000"
-        android:scaleType="fitCenter"
-        android:src="@drawable/minus"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.372"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.764"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
-        android:id="@+id/PlusBtn"
-        android:layout_width="43dp"
-        android:layout_height="42dp"
-        android:background="#0000"
-        android:scaleType="fitCenter"
-        android:src="@drawable/plus"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.627"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.764"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/NumberOfDinersTxt"
-        android:layout_width="281dp"
-        android:layout_height="39dp"
-        android:fontFamily="cursive"
-        android:gravity="center"
-        android:text="Number of diners:"
-        android:textColor="#C80609"
-        android:textSize="25dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.687" />
 
     <TextView
         android:id="@+id/dateAndTime"
@@ -68,7 +24,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.439" />
+        app:layout_constraintVertical_bias="0.429" />
+
+    <Button
+        android:id="@+id/Reserve"
+        android:layout_width="186dp"
+        android:layout_height="70dp"
+        android:fontFamily="cursive"
+        android:text="Book place!"
+        android:textSize="25sp"
+        app:backgroundTint="#C80609"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.984" />
 
     <EditText
         android:id="@+id/Date"
@@ -83,81 +54,7 @@
         app:layout_constraintHorizontal_bias="0.81"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.61" />
-
-    <EditText
-        android:id="@+id/Time"
-        android:layout_width="152dp"
-        android:layout_height="43dp"
-        android:fontFamily="cursive"
-        android:gravity="center"
-        android:textColor="#C80609"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.81"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.526" />
-
-    <Button
-        android:id="@+id/TimeBtn"
-        android:layout_width="135dp"
-        android:layout_height="50dp"
-        android:fontFamily="cursive"
-        android:text="Time"
-        android:textSize="25sp"
-        app:backgroundTint="#C80609"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.235"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.616" />
-
-    <Button
-        android:id="@+id/DateBtn"
-        android:layout_width="135dp"
-        android:layout_height="50dp"
-        android:fontFamily="cursive"
-        android:text="Date"
-        android:textSize="25sp"
-        app:backgroundTint="#C80609"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.235"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.521" />
-
-    <TextView
-        android:id="@+id/EnterName"
-        android:layout_width="281dp"
-        android:layout_height="39dp"
-        android:fontFamily="cursive"
-        android:gravity="center"
-        android:text="Enter your name:"
-        android:textColor="#C80609"
-        android:textSize="25dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.832" />
-
-    <EditText
-        android:id="@+id/Name"
-        android:layout_width="281dp"
-        android:layout_height="39dp"
-        android:fontFamily="cursive"
-        android:gravity="center"
-        android:textColor="#C80609"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.869" />
+        app:layout_constraintVertical_bias="0.601" />
 
     <TextView
         android:id="@+id/NumberOfDiners"
@@ -173,22 +70,129 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.764" />
+        app:layout_constraintVertical_bias="0.755" />
+
+    <TextView
+        android:id="@+id/EnterName"
+        android:layout_width="281dp"
+        android:layout_height="39dp"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="Enter your name:"
+        android:textColor="#C80609"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.816" />
+
+    <ImageButton
+        android:id="@+id/PlusBtn"
+        android:layout_width="43dp"
+        android:layout_height="42dp"
+        android:background="#0000"
+        android:scaleType="fitCenter"
+        android:src="@drawable/plus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.627"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.756"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/Name"
+        android:layout_width="281dp"
+        android:layout_height="39dp"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:textColor="#C80609"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.878" />
 
     <Button
-        android:id="@+id/Reserve"
-        android:layout_width="186dp"
-        android:layout_height="70dp"
+        android:id="@+id/TimeBtn"
+        android:layout_width="135dp"
+        android:layout_height="50dp"
         android:fontFamily="cursive"
-        android:text="Book place!"
+        android:text="Time"
         android:textSize="25sp"
         app:backgroundTint="#C80609"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.235"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.975" />
+        app:layout_constraintVertical_bias="0.607" />
+
+    <EditText
+        android:id="@+id/Time"
+        android:layout_width="152dp"
+        android:layout_height="43dp"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:textColor="#C80609"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.81"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.517" />
+
+    <TextView
+        android:id="@+id/NumberOfDinersTxt"
+        android:layout_width="281dp"
+        android:layout_height="39dp"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="Number of diners:"
+        android:textColor="#C80609"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.679" />
+
+    <Button
+        android:id="@+id/DateBtn"
+        android:layout_width="135dp"
+        android:layout_height="50dp"
+        android:fontFamily="cursive"
+        android:text="Date"
+        android:textSize="25sp"
+        app:backgroundTint="#C80609"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.235"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.512" />
+
+    <ImageButton
+        android:id="@+id/MinusBtn"
+        android:layout_width="43dp"
+        android:layout_height="42dp"
+        android:background="#0000"
+        android:scaleType="fitCenter"
+        android:src="@drawable/minus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.372"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.756"
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
