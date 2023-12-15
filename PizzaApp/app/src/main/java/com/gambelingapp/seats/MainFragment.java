@@ -32,7 +32,7 @@ public class MainFragment  extends Fragment{
 
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_mainFragment2_to_pickSeatsFragment2);
+                Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_bookReservationFragment);
             }
         });
     }

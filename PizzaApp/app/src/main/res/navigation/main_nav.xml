@@ -3,37 +3,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav"
-    app:startDestination="@id/mainFragment2">
+    app:startDestination="@id/mainFragment">
     <fragment
-        android:id="@+id/pickSeatsFragment2"
+        android:id="@+id/pickSeatsFragment"
         android:name="com.gambelingapp.seats.PickSeatsFragment"
         android:label="PickSeatsFragment" >
         <action
-            android:id="@+id/action_pickSeatsFragment2_to_bookReservationFragment"
-            app:destination="@id/bookReservationFragment" />
+            android:id="@+id/action_pickSeatsFragment_to_reservationSuccessFragment"
+            app:destination="@id/reservationSuccessFragment" />
     </fragment>
     <fragment
         android:id="@+id/bookReservationFragment"
         android:name="com.gambelingapp.seats.BookReservationFragment"
         android:label="BookReservationFragment" >
-        <action
-            android:id="@+id/action_bookReservationFragment_to_reservationSuccessFragment"
-            app:destination="@id/reservationSuccessFragment" />
         <argument
             android:name="NumberOfDinersSelected"
             app:argType="integer"
             android:defaultValue="-1" />
+        <action
+            android:id="@+id/action_bookReservationFragment_to_pickSeatsFragment"
+            app:destination="@id/pickSeatsFragment" />
     </fragment>
     <fragment
         android:id="@+id/reservationSuccessFragment"
         android:name="com.gambelingapp.seats.ReservationSuccessFragment"
         android:label="ReservationSuccessFragment" />
     <fragment
-        android:id="@+id/mainFragment2"
+        android:id="@+id/mainFragment"
         android:name="com.gambelingapp.seats.MainFragment"
         android:label="MainFragment" >
         <action
-            android:id="@+id/action_mainFragment2_to_pickSeatsFragment2"
-            app:destination="@id/pickSeatsFragment2" />
+            android:id="@+id/action_mainFragment_to_bookReservationFragment"
+            app:destination="@id/bookReservationFragment" />
     </fragment>
 </navigation>

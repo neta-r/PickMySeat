@@ -15,10 +15,14 @@
         android:layout_height="42dp"
         android:background="#0000"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/minus"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="139dp"
-        tools:layout_editor_absoluteY="525dp" />
+        android:src="@drawable/minus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.372"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.764"
+        tools:ignore="MissingConstraints" />
 
     <ImageButton
         android:id="@+id/PlusBtn"
@@ -26,10 +30,14 @@
         android:layout_height="42dp"
         android:background="#0000"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/plus"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="230dp"
-        tools:layout_editor_absoluteY="525dp" />
+        android:src="@drawable/plus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.627"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.764"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/NumberOfDinersTxt"
@@ -151,7 +159,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.869" />
 
-    <EditText
+    <TextView
         android:id="@+id/NumberOfDiners"
         android:layout_width="51dp"
         android:layout_height="43dp"

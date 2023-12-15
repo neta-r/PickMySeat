@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.TimePicker;
 
 import androidx.annotation.NonNull;
@@ -30,7 +31,9 @@ public class BookReservationFragment extends Fragment {
 
     int SelectedNumberOfDiners = -1;
     Button Date, Time, Reserve;
-    EditText txtDate, txtTime, Name, NumberOfDiners;
+    EditText txtDate, txtTime, Name;
+
+    TextView NumberOfDiners;
 
     ImageButton Plus, Minus;
 
@@ -72,19 +75,19 @@ public class BookReservationFragment extends Fragment {
         };
         Name.addTextChangedListener(tt);
 
-        Minus.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                if (Diners > 0) {
-                    Diners--;
-                    NumberOfDiners.setText(Diners);
-                }
-            }});
-
-        Plus.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Diners++;
-                NumberOfDiners.setText(Diners);
-            }});
+//        Minus.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                if (Diners > 0) {
+//                    Diners--;
+//                    NumberOfDiners.setText(Diners);
+//                }
+//            }});
+//
+//        Plus.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                Diners++;
+//                NumberOfDiners.setText(Diners);
+//            }});
         Date.setOnClickListener(new View.OnClickListener() {
 
                                     @Override

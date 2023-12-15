@@ -59,19 +59,19 @@ public class PickSeatsFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
-                PickSeatsFragmentDirections.ActionPickSeatsFragment2ToBookReservationFragment action = PickSeatsFragmentDirections.actionPickSeatsFragment2ToBookReservationFragment();
-                action.setNumberOfDinersSelected(numberOfDiners);
-                Navigation.findNavController(view).navigate(action);
+//                PickSeatsFragmentDirections.ActionPickSeatsFragment2ToBookReservationFragment action = PickSeatsFragmentDirections.actionPickSeatsFragment2ToBookReservationFragment();
+//                action.setNumberOfDinersSelected(-1);
+//                Navigation.findNavController(view).navigate(action);
             }
         });
         skip.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                PickSeatsFragmentDirections.ActionPickSeatsFragment2ToBookReservationFragment action = PickSeatsFragmentDirections.actionPickSeatsFragment2ToBookReservationFragment();
-                action.setNumberOfDinersSelected(-1);
-                Navigation.findNavController(view).navigate(action);            }
-        });
+//                PickSeatsFragmentDirections.ActionPickSeatsFragment2ToBookReservationFragment action = PickSeatsFragmentDirections.actionPickSeatsFragment2ToBookReservationFragment();
+//                action.setNumberOfDinersSelected(-1);
+//                Navigation.findNavController(view).navigate(action);            }
+        }});
     }
 
 //
