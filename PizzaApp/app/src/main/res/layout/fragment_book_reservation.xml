@@ -41,14 +41,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.984" />
 
-    <EditText
-        android:id="@+id/Date"
+    <TextView
+        android:id="@+id/Time"
         android:layout_width="152dp"
         android:layout_height="43dp"
         android:fontFamily="cursive"
         android:gravity="center"
         android:textColor="#C80609"
         android:textSize="25sp"
+        android:text="_______"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.81"
@@ -105,8 +106,8 @@
 
     <EditText
         android:id="@+id/Name"
-        android:layout_width="281dp"
-        android:layout_height="39dp"
+        android:layout_width="288dp"
+        android:layout_height="49dp"
         android:fontFamily="cursive"
         android:gravity="center"
         android:textColor="#C80609"
@@ -133,14 +134,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.607" />
 
-    <EditText
-        android:id="@+id/Time"
+    <TextView
+        android:id="@+id/Date"
         android:layout_width="152dp"
         android:layout_height="43dp"
         android:fontFamily="cursive"
         android:gravity="center"
         android:textColor="#C80609"
         android:textSize="25sp"
+        android:text="_______"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.81"

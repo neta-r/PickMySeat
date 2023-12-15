@@ -32,9 +32,9 @@ public class BookReservationFragment extends Fragment {
 
     int SelectedNumberOfDiners = -1;
     Button Date, Time, Reserve;
-    EditText txtDate, txtTime, Name;
+    EditText Name;
 
-    TextView NumberOfDiners;
+    TextView  txtDate, txtTime, NumberOfDiners;
 
     ImageButton Plus, Minus;
 
@@ -99,46 +99,46 @@ public class BookReservationFragment extends Fragment {
 
                                     @Override
                                     public void onClick(View v) {
-//                                        final Calendar c = Calendar.getInstance();
-//                                        int mYear = c.get(Calendar.YEAR);
-//                                        int mMonth = c.get(Calendar.MONTH);
-//                                        int mDay = c.get(Calendar.DAY_OF_MONTH);
-//
-//
-//                                        DatePickerDialog datePickerDialog = new DatePickerDialog(getView().getContext(),
-//                                                new DatePickerDialog.OnDateSetListener() {
-//                                                    @Override
-//                                                    public void onDateSet(DatePicker view, int year,
-//                                                                          int monthOfYear, int dayOfMonth) {
-//
-//                                                        txtDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
-//
-//                                                    }
-//                                                }, mYear, mMonth, mDay);
-//                                        datePickerDialog.show();
+                                        final Calendar c = Calendar.getInstance();
+                                        int mYear = c.get(Calendar.YEAR);
+                                        int mMonth = c.get(Calendar.MONTH);
+                                        int mDay = c.get(Calendar.DAY_OF_MONTH);
+
+
+                                        DatePickerDialog datePickerDialog = new DatePickerDialog(getView().getContext(),
+                                                new DatePickerDialog.OnDateSetListener() {
+                                                    @Override
+                                                    public void onDateSet(DatePicker view, int year,
+                                                                          int monthOfYear, int dayOfMonth) {
+
+                                                        txtDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+
+                                                    }
+                                                }, mYear, mMonth, mDay);
+                                        datePickerDialog.show();
                                     }});
 
         Time.setOnClickListener(new View.OnClickListener() {
 
                 @Override
                 public void onClick(View v) {
-//                    final Calendar c = Calendar.getInstance();
-//                    int mHour = c.get(Calendar.HOUR_OF_DAY);
-//                    int mMinute = c.get(Calendar.MINUTE);
-//
-//                    // Launch Time Picker Dialog
-//                    TimePickerDialog timePickerDialog = new TimePickerDialog(getView().getContext(),
-//                            new TimePickerDialog.OnTimeSetListener() {
-//
-//                                @SuppressLint("SetTextI18n")
-//                                @Override
-//                                public void onTimeSet(TimePicker view, int hourOfDay,
-//                                                      int minute) {
-//
-//                                    txtTime.setText(hourOfDay + ":" + minute);
-//                                }
-//                            }, mHour, mMinute, false);
-//                    timePickerDialog.show();
+                    final Calendar c = Calendar.getInstance();
+                    int mHour = c.get(Calendar.HOUR_OF_DAY);
+                    int mMinute = c.get(Calendar.MINUTE);
+
+                    // Launch Time Picker Dialog
+                    TimePickerDialog timePickerDialog = new TimePickerDialog(getView().getContext(),
+                            new TimePickerDialog.OnTimeSetListener() {
+
+                                @SuppressLint("SetTextI18n")
+                                @Override
+                                public void onTimeSet(TimePicker view, int hourOfDay,
+                                                      int minute) {
+
+                                    txtTime.setText(hourOfDay + ":" + minute);
+                                }
+                            }, mHour, mMinute, false);
+                    timePickerDialog.show();
                 }});
 
         //todo:if (v == Reserve) {
