@@ -1,5 +1,8 @@
 package com.gambelingapp.seats;
 
+import static java.lang.Integer.min;
+import static java.lang.Integer.parseInt;
+
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
@@ -34,16 +37,22 @@ public class BookReservationFragment extends Fragment {
     Button Date, Time, Reserve;
     EditText Name;
 
-    TextView  txtDate, txtTime, NumberOfDiners;
+    TextView txtDate, txtTime, NumberOfDiners;
 
     ImageButton Plus, Minus;
 
     int Diners = 0;
     TextWatcher tt = null;
-
+    Calendar c =null;
+    int year = -1;
+    int month = -1;
+    int day = -1;
+    int  hour = -1;
+    int minute = -1;
     public BookReservationFragment() {
         super(R.layout.fragment_book_reservation);
     }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,75 +92,92 @@ public class BookReservationFragment extends Fragment {
                     Diners--;
                     NumberOfDiners.setText(Integer.toString(Diners));
                 }
-            }});
+            }
+        });
 
         Plus.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if (Diners<=5) {
+                if (Diners <= 5) {
                     Diners++;
                     NumberOfDiners.setText(Integer.toString(Diners));
-                }
-                else{
+                } else {
                     Toast.makeText(requireActivity().getApplicationContext(), "Reservations are up to 6 people!", Toast.LENGTH_SHORT).show();
                 }
-            }});
+            }
+        });
         Date.setOnClickListener(new View.OnClickListener() {
 
-                                    @Override
-                                    public void onClick(View v) {
-                                        final Calendar c = Calendar.getInstance();
-                                        int mYear = c.get(Calendar.YEAR);
-                                        int mMonth = c.get(Calendar.MONTH);
-                                        int mDay = c.get(Calendar.DAY_OF_MONTH);
+            @Override
+            public void onClick(View v) {
+                c = Calendar.getInstance();
+                year = c.get(Calendar.YEAR);
+                month = c.get(Calendar.MONTH);
+                day = c.get(Calendar.DAY_OF_MONTH);
 
 
-                                        DatePickerDialog datePickerDialog = new DatePickerDialog(getView().getContext(),
-                                                new DatePickerDialog.OnDateSetListener() {
-                                                    @Override
-                                                    public void onDateSet(DatePicker view, int year,
-                                                                          int monthOfYear, int dayOfMonth) {
-
-                                                        txtDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
-
-                                                    }
-                                                }, mYear, mMonth, mDay);
-                                        datePickerDialog.show();
-                                    }});
+                DatePickerDialog datePickerDialog = new DatePickerDialog(getView().getContext(),
+                        new DatePickerDialog.OnDateSetListener() {
+                            @Override
+                            public void onDateSet(DatePicker view, int year,
+                                                  int monthOfYear, int dayOfMonth) {
+                                String d = Integer.toString(dayOfMonth);
+                                String m = Integer.toString(monthOfYear+1);
+                                String y = Integer.toString(year);
+                                if (dayOfMonth<10) d ="0"+Integer.toString(dayOfMonth);
+                                if (monthOfYear<10) m="0"+Integer.toString(monthOfYear);
+                                txtDate.setText(d + "-" + m + "-" + y);
+                            }
+                        }, year, month, day);
+                datePickerDialog.show();
+            }
+        });
 
         Time.setOnClickListener(new View.OnClickListener() {
 
-                @Override
-                public void onClick(View v) {
-                    final Calendar c = Calendar.getInstance();
-                    int mHour = c.get(Calendar.HOUR_OF_DAY);
-                    int mMinute = c.get(Calendar.MINUTE);
+            @Override
+            public void onClick(View v) {
+                c = Calendar.getInstance();
+                hour = c.get(Calendar.HOUR_OF_DAY);
+                minute = c.get(Calendar.MINUTE);
 
-                    // Launch Time Picker Dialog
-                    TimePickerDialog timePickerDialog = new TimePickerDialog(getView().getContext(),
-                            new TimePickerDialog.OnTimeSetListener() {
+                // Launch Time Picker Dialog
+                TimePickerDialog timePickerDialog = new TimePickerDialog(getView().getContext(),
+                        new TimePickerDialog.OnTimeSetListener() {
 
-                                @SuppressLint("SetTextI18n")
-                                @Override
-                                public void onTimeSet(TimePicker view, int hourOfDay,
-                                                      int minute) {
-
-                                    txtTime.setText(hourOfDay + ":" + minute);
-                                }
-                            }, mHour, mMinute, false);
-                    timePickerDialog.show();
-                }});
-
-        //todo:if (v == Reserve) {
-        // enter a db connection and check reservation info
-        //Intent i = new Intent(getApplicationContext(), PickSeats.class);
-        //startActivity(i);
-        //}
+                            @SuppressLint("SetTextI18n")
+                            @Override
+                            public void onTimeSet(TimePicker view, int hourOfDay,
+                                                  int minute) {
+                                if (minute<10) txtTime.setText(hourOfDay + ":0" + minute);
+                                else txtTime.setText(hourOfDay + ":" + minute);
+                            }
+                        }, hour, minute, false);
+                timePickerDialog.show();
+            }
+        });
+        Reserve.setOnClickListener(new View.OnClickListener() {
+                                       @Override
+                                       public void onClick(View v) {
+                                           if (year == -1 || month == -1 || day == -1) {
+                                               Toast.makeText(requireActivity().getApplicationContext(), "Pick Date", Toast.LENGTH_SHORT).show();
+                                           } else if (hour == -1 || minute == -1) {
+                                               Toast.makeText(requireActivity().getApplicationContext(), "Pick Time", Toast.LENGTH_SHORT).show();
+                                           } else if (Integer.parseInt(NumberOfDiners.getText().toString()) == 0) {
+                                               Toast.makeText(requireActivity().getApplicationContext(), "Select number of diners", Toast.LENGTH_SHORT).show();
+                                           } else if (Name.getText().toString().equals("")) {
+                                               Toast.makeText(requireActivity().getApplicationContext(), "Type name", Toast.LENGTH_SHORT).show();
+                                           } else {
+                                               Navigation.findNavController(view).navigate(R.id.action_bookReservationFragment_to_pickSeatsFragment);
+                                           }
+                                       }
+                                   }
+        );
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        if (getArguments()!=null) {
+        if (getArguments() != null) {
             BookReservationFragmentArgs args = BookReservationFragmentArgs.fromBundle(getArguments());
             SelectedNumberOfDiners = args.getNumberOfDinersSelected();
         }
