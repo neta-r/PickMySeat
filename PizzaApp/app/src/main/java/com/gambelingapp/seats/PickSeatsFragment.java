@@ -22,7 +22,7 @@ import com.gambelingapp.R;
 
 public class PickSeatsFragment extends Fragment {
     String choice = null;
-    static ReservationObject reservationObject;
+    ReservationObject reservationObject;
     Button next, skip;
     ImageButton s1, s2, s3, s4, s5, s6, s7, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13;
 
@@ -33,6 +33,8 @@ public class PickSeatsFragment extends Fragment {
     @SuppressLint("MissingInflatedId")
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        Bundle bundle = this.getArguments();
+        reservationObject= (ReservationObject) bundle.getParcelable("ResObj");
         next = view.findViewById(R.id.Next);
         skip = view.findViewById(R.id.Skip);
         s1 = (ImageButton) view.findViewById(R.id.Seat1);

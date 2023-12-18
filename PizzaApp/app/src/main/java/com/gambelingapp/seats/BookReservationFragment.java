@@ -175,9 +175,14 @@ public class BookReservationFragment extends Fragment {
                                                Toast.makeText(requireActivity().getApplicationContext(), "Type name", Toast.LENGTH_SHORT).show();
                                            } else {
                                                name = Name.getText().toString();
-                                               PickSeatsFragment pickSeatsFragment = new PickSeatsFragment();
-                                               pickSeatsFragment.setReservation( new ReservationObject(name, Diners, strDate, strTime));
-                                               Navigation.findNavController(view).navigate(R.id.action_bookReservationFragment_to_pickSeatsFragment);
+                                               Fragment fragment = new Fragment();
+                                               ReservationObject resObf = new ReservationObject(name, Diners, strDate, strTime);
+
+                                               Bundle bundle = new Bundle();
+                                               bundle.putParcelable("ResObj", resObf);
+                                               fragment.setArguments(bundle);
+
+                                               Navigation.findNavController(view).navigate(R.id.action_bookReservationFragment_to_pickSeatsFragment, bundle);
                                            }
                                        }
                                    }
