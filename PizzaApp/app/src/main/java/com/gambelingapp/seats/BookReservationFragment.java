@@ -43,15 +43,15 @@ public class BookReservationFragment extends Fragment {
 
     int Diners = 0;
     TextWatcher tt = null;
-    Calendar c =null;
+    Calendar c = null;
     int year = -1;
     int month = -1;
     int day = -1;
-    int  hour = -1;
+    int hour = -1;
     int minute = -1;
 
     String strDate = "";
-    String  strTime = "";
+    String strTime = "";
     String name = "";
 
     public BookReservationFragment() {
@@ -126,10 +126,10 @@ public class BookReservationFragment extends Fragment {
                             public void onDateSet(DatePicker view, int year,
                                                   int monthOfYear, int dayOfMonth) {
                                 String d = Integer.toString(dayOfMonth);
-                                String m = Integer.toString(monthOfYear+1);
+                                String m = Integer.toString(monthOfYear + 1);
                                 String y = Integer.toString(year);
-                                if (dayOfMonth<10) d ="0"+Integer.toString(dayOfMonth);
-                                if (monthOfYear<10) m="0"+Integer.toString(monthOfYear);
+                                if (dayOfMonth < 10) d = "0" + Integer.toString(dayOfMonth);
+                                if (monthOfYear < 10) m = "0" + Integer.toString(monthOfYear);
                                 strDate = d + "-" + m + "-" + y;
                                 txtDate.setText(strDate);
                             }
@@ -154,8 +154,8 @@ public class BookReservationFragment extends Fragment {
                             @Override
                             public void onTimeSet(TimePicker view, int hourOfDay,
                                                   int minute) {
-                                if (minute<10) strTime=hourOfDay + ":0" + minute;
-                                else strTime=hourOfDay + ":" + minute;
+                                if (minute < 10) strTime = hourOfDay + ":0" + minute;
+                                else strTime = hourOfDay + ":" + minute;
                                 txtTime.setText(strTime);
                             }
                         }, hour, minute, false);
@@ -175,7 +175,8 @@ public class BookReservationFragment extends Fragment {
                                                Toast.makeText(requireActivity().getApplicationContext(), "Type name", Toast.LENGTH_SHORT).show();
                                            } else {
                                                name = Name.getText().toString();
-
+                                               PickSeatsFragment pickSeatsFragment = new PickSeatsFragment();
+                                               pickSeatsFragment.setReservation( new ReservationObject(name, Diners, strDate, strTime));
                                                Navigation.findNavController(view).navigate(R.id.action_bookReservationFragment_to_pickSeatsFragment);
                                            }
                                        }

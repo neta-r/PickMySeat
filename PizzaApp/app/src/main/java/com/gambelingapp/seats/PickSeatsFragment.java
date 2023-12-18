@@ -22,7 +22,7 @@ import com.gambelingapp.R;
 
 public class PickSeatsFragment extends Fragment {
     String choice = null;
-    int numberOfDiners = 0;
+    static ReservationObject reservationObject;
     Button next, skip;
     ImageButton s1, s2, s3, s4, s5, s6, s7, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13;
 
@@ -155,5 +155,9 @@ public class PickSeatsFragment extends Fragment {
 //            choice = "t13";
 //            numberOfDiners = 4;
 //        }
+
+    void setReservation (ReservationObject reservationObject){
+        this.reservationObject = reservationObject;
+    }
 
 }
