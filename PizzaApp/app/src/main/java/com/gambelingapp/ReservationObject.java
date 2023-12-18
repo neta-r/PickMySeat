@@ -3,13 +3,10 @@ package com.gambelingapp;
 import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-
-import com.gambelingapp.Reservation.MainActivity;
 
 public class ReservationObject implements Parcelable {
     String dinerName = "";
