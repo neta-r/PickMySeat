@@ -1,8 +1,10 @@
 package com.gambelingapp;
 
+import androidx.lifecycle.ViewModel;
+
 import java.util.HashMap;
 
-public class PizzaStore implements Restaurant{
+public class PizzaStore extends ViewModel implements Restaurant{
     private HashMap<String, restaurantPlace> places;
 
     public PizzaStore(){
@@ -37,5 +39,7 @@ public class PizzaStore implements Restaurant{
         this.addTable(2, "t10");
         this.addTable(4, "t11");
         this.addTable(4, "t12");
+        this.addTable(4, "t13");
+
     }
 }

@@ -11,15 +11,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.gambelingapp.PizzaStore;
 import com.gambelingapp.R;
+
+import java.util.Objects;
 
 
 public class PickSeatsFragment extends Fragment {
     String choice = null;
     ReservationObject reservationObject;
     Button next, skip;
-    ImageButton s1, s2, s3, s4, s5, s6, s7, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13;
-
+    PizzaStore pizzaRestaurant;
     public PickSeatsFragment() {
         super(R.layout.fragment_pick_seats);
     }
@@ -31,26 +33,9 @@ public class PickSeatsFragment extends Fragment {
         reservationObject= (ReservationObject) bundle.getParcelable("ResObj");
         next = view.findViewById(R.id.Next);
         skip = view.findViewById(R.id.Skip);
-        s1 = (ImageButton) view.findViewById(R.id.Seat1);
-        s2 = (ImageButton) view.findViewById(R.id.Seat2);
-        s3 = (ImageButton) view.findViewById(R.id.Seat3);
-        s4 = (ImageButton) view.findViewById(R.id.Seat4);
-        s5 = (ImageButton) view.findViewById(R.id.Seat5);
-        s6 = (ImageButton) view.findViewById(R.id.Seat6);
-        s7 = (ImageButton) view.findViewById(R.id.Seat7);
-        t1 = (ImageButton) view.findViewById(R.id.Table1);
-        t2 = (ImageButton) view.findViewById(R.id.Table2);
-        t3 = (ImageButton) view.findViewById(R.id.Table3);
-        t4 = (ImageButton) view.findViewById(R.id.Table4);
-        t5 = (ImageButton) view.findViewById(R.id.Table5);
-        t6 = (ImageButton) view.findViewById(R.id.Table6);
-        t7 = (ImageButton) view.findViewById(R.id.Table7);
-        t8 = (ImageButton) view.findViewById(R.id.Table8);
-        t9 = (ImageButton) view.findViewById(R.id.Table9);
-        t10 = (ImageButton) view.findViewById(R.id.Table10);
-        t11 = (ImageButton) view.findViewById(R.id.Table11);
-        t12 = (ImageButton) view.findViewById(R.id.Table12);
-        t13 = (ImageButton) view.findViewById(R.id.Table13);
+        MainActivity parentActivity = (MainActivity) getActivity();
+        pizzaRestaurant = ((MainActivity) requireActivity()).pizzaRestaurant;
+        setBtn(view);
         next.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -68,6 +53,29 @@ public class PickSeatsFragment extends Fragment {
 //                action.setNumberOfDinersSelected(-1);
 //                Navigation.findNavController(view).navigate(action);            }
         }});
+    }
+    public void setBtn(View view){
+        pizzaRestaurant.getPlaces().get("s1").setBtn(view.findViewById(R.id.Seat1));
+        pizzaRestaurant.getPlaces().get("s2").setBtn(view.findViewById(R.id.Seat2));
+        pizzaRestaurant.getPlaces().get("s3").setBtn(view.findViewById(R.id.Seat3));
+        pizzaRestaurant.getPlaces().get("s4").setBtn(view.findViewById(R.id.Seat4));
+        pizzaRestaurant.getPlaces().get("s5").setBtn(view.findViewById(R.id.Seat5));
+        pizzaRestaurant.getPlaces().get("s6").setBtn(view.findViewById(R.id.Seat6));
+        pizzaRestaurant.getPlaces().get("s7").setBtn(view.findViewById(R.id.Seat7));
+
+        pizzaRestaurant.getPlaces().get("t1").setBtn(view.findViewById(R.id.Table1));
+        pizzaRestaurant.getPlaces().get("t2").setBtn(view.findViewById(R.id.Table2));
+        pizzaRestaurant.getPlaces().get("t3").setBtn(view.findViewById(R.id.Table3));
+        pizzaRestaurant.getPlaces().get("t4").setBtn(view.findViewById(R.id.Table4));
+        pizzaRestaurant.getPlaces().get("t5").setBtn(view.findViewById(R.id.Table5));
+        pizzaRestaurant.getPlaces().get("t6").setBtn(view.findViewById(R.id.Table6));
+        pizzaRestaurant.getPlaces().get("t7").setBtn(view.findViewById(R.id.Table7));
+        pizzaRestaurant.getPlaces().get("t8").setBtn(view.findViewById(R.id.Table8));
+        pizzaRestaurant.getPlaces().get("t9").setBtn(view.findViewById(R.id.Table9));
+        pizzaRestaurant.getPlaces().get("t10").setBtn(view.findViewById(R.id.Table10));
+        pizzaRestaurant.getPlaces().get("t11").setBtn(view.findViewById(R.id.Table11));
+        pizzaRestaurant.getPlaces().get("t12").setBtn(view.findViewById(R.id.Table12));
+        pizzaRestaurant.getPlaces().get("t13").setBtn(view.findViewById(R.id.Table13));
     }
 
 //
