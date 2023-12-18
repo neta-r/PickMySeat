@@ -1,11 +1,9 @@
-package com.gambelingapp.seats;
+package com.gambelingapp.Reservation;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
-
-import java.io.Serializable;
 
 public class ReservationObject implements Parcelable {
     String dinerName = "";

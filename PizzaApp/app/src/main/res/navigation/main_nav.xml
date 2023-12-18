@@ -6,7 +6,7 @@
     app:startDestination="@id/mainFragment">
     <fragment
         android:id="@+id/pickSeatsFragment"
-        android:name="com.gambelingapp.seats.PickSeatsFragment"
+        android:name="com.gambelingapp.Reservation.PickSeatsFragment"
         android:label="PickSeatsFragment" >
         <action
             android:id="@+id/action_pickSeatsFragment_to_reservationSuccessFragment"
@@ -14,7 +14,7 @@
     </fragment>
     <fragment
         android:id="@+id/bookReservationFragment"
-        android:name="com.gambelingapp.seats.BookReservationFragment"
+        android:name="com.gambelingapp.Reservation.BookReservationFragment"
         android:label="BookReservationFragment" >
         <action
             android:id="@+id/action_bookReservationFragment_to_pickSeatsFragment"
@@ -22,11 +22,11 @@
     </fragment>
     <fragment
         android:id="@+id/reservationSuccessFragment"
-        android:name="com.gambelingapp.seats.ReservationSuccessFragment"
+        android:name="com.gambelingapp.Reservation.ReservationSuccessFragment"
         android:label="ReservationSuccessFragment" />
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.gambelingapp.seats.MainFragment"
+        android:name="com.gambelingapp.Reservation.MainFragment"
         android:label="MainFragment" >
         <action
             android:id="@+id/action_mainFragment_to_bookReservationFragment"
