@@ -50,7 +50,7 @@
         app:layout_constraintVertical_bias="0.572"
         android:background="#0000"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/blue_table" />
+        app:srcCompat="@drawable/blue_table_selector" />
 
     <ImageButton
         android:id="@+id/blueTable7"
@@ -63,7 +63,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:background="#0000"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/blue_table" />
+        app:srcCompat="@drawable/blue_table_selector" />
 
     <ImageButton
         android:id="@+id/blueTable8"
@@ -76,7 +76,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:background="#0000"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/blue_table" />
+        app:srcCompat="@drawable/blue_table_selector" />
 
     <ImageButton
         android:id="@+id/blueTable11"
@@ -90,7 +90,7 @@
         app:layout_constraintVertical_bias="0.572"
         android:background="#0000"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/blue_table" />
+        app:srcCompat="@drawable/blue_table_selector" />
 
     <ImageButton
         android:id="@+id/blueTable1"
@@ -104,7 +104,7 @@
         app:layout_constraintVertical_bias="0.278"
         android:background="#0000"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/blue_table" />
+        app:srcCompat="@drawable/blue_table_selector" />
 
     <ImageButton
         android:id="@+id/blueTable5"
@@ -118,7 +118,7 @@
         app:layout_constraintVertical_bias="0.35"
         android:background="#0000"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/blue_table" />
+        app:srcCompat="@drawable/blue_table_selector" />
 
     <ImageButton
         android:id="@+id/blueTable6"
@@ -132,22 +132,21 @@
         app:layout_constraintVertical_bias="0.35"
         android:background="#0000"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/blue_table" />
+        app:srcCompat="@drawable/blue_table_selector" />
 
     <ImageButton
         android:id="@+id/blueTable3"
         android:layout_width="43dp"
         android:layout_height="41dp"
+        android:background="#0000"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.665"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.278"
-        android:background="#0000"
-        android:scaleType="fitCenter"
-
-        app:srcCompat="@drawable/blue_table" />
+        app:srcCompat="@drawable/blue_table_selector" />
 
     <ImageButton
         android:id="@+id/blueTable9"
@@ -160,7 +159,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:background="#0000"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/blue_table" />
+        app:srcCompat="@drawable/blue_table_selector" />
 
     <ImageButton
         android:id="@+id/blueTable10"
@@ -174,21 +173,21 @@
         app:layout_constraintVertical_bias="0.572"
         android:background="#0000"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/blue_table" />
+        app:srcCompat="@drawable/blue_table_selector" />
 
     <ImageButton
         android:id="@+id/blueTable2"
         android:layout_width="43dp"
         android:layout_height="41dp"
+        android:background="#0000"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.278"
-        android:background="#0000"
-        android:scaleType="fitCenter"
-        app:srcCompat="@drawable/blue_table" />
+        app:srcCompat="@drawable/blue_table_selector" />
 
     <ImageButton
         android:id="@+id/blueTable4"
@@ -202,7 +201,7 @@
         app:layout_constraintVertical_bias="0.35"
         android:background="#0000"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/blue_table" />
+        app:srcCompat="@drawable/blue_table_selector" />
 
     <ImageButton
         android:id="@+id/pinkTable1"
@@ -216,7 +215,7 @@
         app:layout_constraintVertical_bias="0.124"
         android:background="#0000"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/pink_table" />
+        app:srcCompat="@drawable/pink_table_selector" />
 
 
     <ImageButton
@@ -231,7 +230,7 @@
         app:layout_constraintVertical_bias="0.124"
         android:background="#0000"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/pink_table" />
+        app:srcCompat="@drawable/pink_table_selector" />
 
     <ImageButton
         android:id="@+id/pinkTable3"
@@ -245,21 +244,21 @@
         app:layout_constraintVertical_bias="0.124"
         android:background="#0000"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/pink_table" />
+        app:srcCompat="@drawable/pink_table_selector" />
 
     <ImageButton
         android:id="@+id/greenTable1"
         android:layout_width="54dp"
         android:layout_height="80dp"
+        android:background="#0000"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.871"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.127"
-        android:background="#0000"
-        android:scaleType="fitCenter"
-        app:srcCompat="@drawable/green_table" />
+        app:srcCompat="@drawable/green_table_selector" />
 
     <ImageButton
         android:id="@+id/greenTable2"
@@ -273,7 +272,7 @@
         app:layout_constraintVertical_bias="0.279"
         android:background="#0000"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/green_table" />
+        app:srcCompat="@drawable/green_table_selector" />
 
     <ImageButton
         android:id="@+id/greenTable3"
@@ -287,7 +286,7 @@
         app:layout_constraintVertical_bias="0.557"
         android:background="#0000"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/green_table" />
+        app:srcCompat="@drawable/green_table_selector" />
 
     <ImageButton
         android:id="@+id/greenTable4"
@@ -301,7 +300,7 @@
         app:layout_constraintVertical_bias="0.703"
         android:background="#0000"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/green_table" />
+        app:srcCompat="@drawable/green_table_selector" />
 
     <ImageButton
         android:id="@+id/orangeTable1"
@@ -315,7 +314,7 @@
         app:layout_constraintVertical_bias="0.693"
         android:background="#0000"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/orange_table" />
+        app:srcCompat="@drawable/orange_table_selector" />
 
     <ImageButton
         android:id="@+id/orangeTable2"
@@ -329,7 +328,7 @@
         app:layout_constraintVertical_bias="0.693"
         android:background="#0000"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/orange_table" />
+        app:srcCompat="@drawable/orange_table_selector" />
 
 
     <ImageButton
@@ -344,7 +343,7 @@
         app:layout_constraintVertical_bias="0.693"
         android:background="#0000"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/orange_table" />
+        app:srcCompat="@drawable/orange_table_selector" />
 
     <ImageButton
         android:id="@+id/orangeTable4"
@@ -358,7 +357,7 @@
         app:layout_constraintVertical_bias="0.693"
         android:background="#0000"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/orange_table" />
+        app:srcCompat="@drawable/orange_table_selector" />
 
     <ImageButton
         android:id="@+id/orangeTable5"
@@ -372,6 +371,6 @@
         app:layout_constraintVertical_bias="0.693"
         android:background="#0000"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/orange_table" />
+        app:srcCompat="@drawable/orange_table_selector" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

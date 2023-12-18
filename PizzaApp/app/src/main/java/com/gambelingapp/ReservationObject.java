@@ -64,6 +64,7 @@ public class ReservationObject implements Parcelable {
                 @Override
                 public void onClick(View v) {
                     if (numOfDiners<=place.numberOfPlaces) {
+                        place.btn.setSelected(! place.btn.isSelected());
                         chosenPlace = tag;
                     }
                     else {
