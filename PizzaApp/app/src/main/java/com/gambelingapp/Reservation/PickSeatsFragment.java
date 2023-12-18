@@ -16,7 +16,6 @@ import com.gambelingapp.ReservationObject;
 
 
 public class PickSeatsFragment extends Fragment {
-    String choice = null;
     ReservationObject reservationObject;
     Button next, skip;
     PizzaStore pizzaRestaurant;
@@ -34,7 +33,7 @@ public class PickSeatsFragment extends Fragment {
         skip = view.findViewById(R.id.Skip);
         pizzaRestaurant = ((MainActivity) requireActivity()).pizzaRestaurant;
         setBtn(view);
-        reservationObject.RestaurantHandel(pizzaRestaurant);
+        reservationObject.RestaurantHandel(pizzaRestaurant, getContext());
         next.setOnClickListener(new View.OnClickListener() {
 
             @Override

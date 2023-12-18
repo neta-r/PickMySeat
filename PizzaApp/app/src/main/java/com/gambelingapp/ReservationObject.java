@@ -1,11 +1,15 @@
 package com.gambelingapp;
 
+import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+
+import com.gambelingapp.Reservation.MainActivity;
 
 public class ReservationObject implements Parcelable {
     String dinerName = "";
@@ -56,14 +60,18 @@ public class ReservationObject implements Parcelable {
         dest.writeString(time);
     }
 
-    public void RestaurantHandel(PizzaStore pizzaRestaurant) {
+    public void RestaurantHandel(PizzaStore pizzaRestaurant, Context context) {
         this.pizzaRestaurant = pizzaRestaurant;
         pizzaRestaurant.getPlaces().forEach((tag, place) -> {
             place.btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    chosenPlace = tag;
-                    Log.i("Reservation", "chosen place is "+tag);
+                    if (numOfDiners<=place.numberOfPlaces) {
+                        chosenPlace = tag;
+                    }
+                    else {
+                        Toast.makeText(context, "Too few places", Toast.LENGTH_SHORT).show();
+                    }
                 }
             });
         });
