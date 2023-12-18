@@ -86,7 +86,6 @@ public class BookReservationFragment extends Fragment {
                 Name.removeTextChangedListener(tt);
                 Name.setText(Name.getText().toString());
                 Name.addTextChangedListener(tt);
-                name = Name.getText().toString();
             }
         };
         Name.addTextChangedListener(tt);
@@ -175,11 +174,8 @@ public class BookReservationFragment extends Fragment {
                                            } else if (Name.getText().toString().equals("")) {
                                                Toast.makeText(requireActivity().getApplicationContext(), "Type name", Toast.LENGTH_SHORT).show();
                                            } else {
-                                               BookReservationFragmentDirections.ActionBookReservationFragmentToPickSeatsFragment action =BookReservationFragmentDirections.actionBookReservationFragmentToPickSeatsFragment(name, Diners, strDate, strTime);
-                                               action.setName(name);
-                                               action.setNumberOfDiners(Diners);
-                                               action.setDate(strDate);
-                                               action.setTime(strTime);
+                                               name = Name.getText().toString();
+
                                                Navigation.findNavController(view).navigate(R.id.action_bookReservationFragment_to_pickSeatsFragment);
                                            }
                                        }
