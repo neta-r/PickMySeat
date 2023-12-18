@@ -20,26 +20,31 @@ public class PizzaStore extends ViewModel implements Restaurant{
     }
 
     public void initializeRestaurant(){
-        this.addTable(1, "s1");
-        this.addTable(1, "s2");
-        this.addTable(1, "s3");
-        this.addTable(1, "s4");
-        this.addTable(1, "s5");
-        this.addTable(1, "s6");
-        this.addTable(1, "s7");
-        this.addTable(4, "t1");
-        this.addTable(4, "t2");
-        this.addTable(4, "t3");
-        this.addTable(4, "t4");
-        this.addTable(4, "t5");
-        this.addTable(4, "t6");
-        this.addTable(6, "t7");
-        this.addTable(2, "t8");
-        this.addTable(2, "t9");
-        this.addTable(2, "t10");
-        this.addTable(4, "t11");
-        this.addTable(4, "t12");
-        this.addTable(4, "t13");
+        this.addTable(6, "pink1");
+        this.addTable(6, "pink2");
+        this.addTable(6, "pink3");
+        this.addTable(4, "blue1");
+        this.addTable(4, "blue2");
+        this.addTable(4, "blue3");
+        this.addTable(4, "blue4");
+        this.addTable(4, "blue5");
+        this.addTable(4, "blue6");
+        this.addTable(4, "blue7");
+        this.addTable(4, "blue8");
+        this.addTable(4, "blue9");
+        this.addTable(4, "blue10");
+        this.addTable(4, "blue11");
+        this.addTable(4, "blue12");
+        this.addTable(8, "green1");
+        this.addTable(8, "green2");
+        this.addTable(8, "green3");
+        this.addTable(8, "green4");
+        this.addTable(2, "orange1");
+        this.addTable(2, "orange2");
+        this.addTable(2, "orange3");
+        this.addTable(2, "orange4");
+        this.addTable(2, "orange5");
+
 
     }
 }

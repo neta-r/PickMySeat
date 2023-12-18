@@ -1,17 +1,17 @@
 package com.gambelingapp;
 
 import android.view.View;
-import android.widget.RadioButton;
+import android.widget.ImageButton;
 
 public class restaurantPlace{
     int numberOfPlaces=0;
-    public RadioButton btn;
+    public ImageButton btn;
 
     public restaurantPlace (int numberOfPlaces){
         this.numberOfPlaces = numberOfPlaces;
     }
     public void setBtn(View view){
-        this.btn=((RadioButton) view);
+        this.btn=((ImageButton) view);
     }
 
 }
