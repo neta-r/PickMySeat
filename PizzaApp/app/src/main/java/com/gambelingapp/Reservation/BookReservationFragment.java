@@ -99,11 +99,11 @@ public class BookReservationFragment extends Fragment {
 
         Plus.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if (Diners <= 5) {
+                if (Diners <= 7) {
                     Diners++;
                     NumberOfDiners.setText(Integer.toString(Diners));
                 } else {
-                    Toast.makeText(requireActivity().getApplicationContext(), "Reservations are up to 6 people!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(requireActivity().getApplicationContext(), "Reservations are up to 8 people!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
