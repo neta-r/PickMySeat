@@ -1,7 +1,9 @@
-package com.gambelingapp.Reservation;
+package com.gambelingapp;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 
@@ -11,11 +13,15 @@ public class ReservationObject implements Parcelable {
     String date = "";
     String time = "";
 
-    public ReservationObject(String dinerName,int numOfDiners,String date,String time){
-        this.dinerName=dinerName;
-        this.numOfDiners=numOfDiners;
-        this.date=date;
-        this.time=time;
+    String chosenPlace = "";
+
+    private Restaurant pizzaRestaurant;
+
+    public ReservationObject(String dinerName, int numOfDiners, String date, String time) {
+        this.dinerName = dinerName;
+        this.numOfDiners = numOfDiners;
+        this.date = date;
+        this.time = time;
     }
 
     protected ReservationObject(Parcel in) {
@@ -48,5 +54,18 @@ public class ReservationObject implements Parcelable {
         dest.writeInt(numOfDiners);
         dest.writeString(date);
         dest.writeString(time);
+    }
+
+    public void RestaurantHandel(PizzaStore pizzaRestaurant) {
+        this.pizzaRestaurant = pizzaRestaurant;
+        pizzaRestaurant.getPlaces().forEach((tag, place) -> {
+            place.btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    chosenPlace = tag;
+                    Log.i("Reservation", "chosen place is "+tag);
+                }
+            });
+        });
     }
 }

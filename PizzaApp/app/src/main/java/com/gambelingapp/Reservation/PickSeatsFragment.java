@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 
 
 import androidx.annotation.NonNull;
@@ -13,8 +12,7 @@ import androidx.fragment.app.Fragment;
 
 import com.gambelingapp.PizzaStore;
 import com.gambelingapp.R;
-
-import java.util.Objects;
+import com.gambelingapp.ReservationObject;
 
 
 public class PickSeatsFragment extends Fragment {
@@ -22,6 +20,7 @@ public class PickSeatsFragment extends Fragment {
     ReservationObject reservationObject;
     Button next, skip;
     PizzaStore pizzaRestaurant;
+
     public PickSeatsFragment() {
         super(R.layout.fragment_pick_seats);
     }
@@ -30,31 +29,37 @@ public class PickSeatsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         Bundle bundle = this.getArguments();
-        reservationObject= (ReservationObject) bundle.getParcelable("ResObj");
+        reservationObject = (ReservationObject) bundle.getParcelable("ResObj");
         next = view.findViewById(R.id.Next);
         skip = view.findViewById(R.id.Skip);
-        MainActivity parentActivity = (MainActivity) getActivity();
         pizzaRestaurant = ((MainActivity) requireActivity()).pizzaRestaurant;
         setBtn(view);
+        reservationObject.RestaurantHandel(pizzaRestaurant);
         next.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-//                PickSeatsFragmentDirections.ActionPickSeatsFragment2ToBookReservationFragment action = PickSeatsFragmentDirections.actionPickSeatsFragment2ToBookReservationFragment();
-//                action.setNumberOfDinersSelected(-1);
-//                Navigation.findNavController(view).navigate(action);
+                checkAvialability();
             }
         });
         skip.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-//                PickSeatsFragmentDirections.ActionPickSeatsFragment2ToBookReservationFragment action = PickSeatsFragmentDirections.actionPickSeatsFragment2ToBookReservationFragment();
-//                action.setNumberOfDinersSelected(-1);
-//                Navigation.findNavController(view).navigate(action);            }
-        }});
+                selectRandomPlace();
+            }
+        });
     }
-    public void setBtn(View view){
+
+
+
+    private void selectRandomPlace() {
+    }
+
+    private void checkAvialability() {
+    }
+
+    private void setBtn(View view) {
         pizzaRestaurant.getPlaces().get("s1").setBtn(view.findViewById(R.id.Seat1));
         pizzaRestaurant.getPlaces().get("s2").setBtn(view.findViewById(R.id.Seat2));
         pizzaRestaurant.getPlaces().get("s3").setBtn(view.findViewById(R.id.Seat3));
@@ -160,7 +165,7 @@ public class PickSeatsFragment extends Fragment {
 //            numberOfDiners = 4;
 //        }
 
-    void setReservation (ReservationObject reservationObject){
+    void setReservation(ReservationObject reservationObject) {
         this.reservationObject = reservationObject;
     }
 
