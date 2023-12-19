@@ -173,12 +173,12 @@ public class BookReservationFragment extends Fragment {
                                            } else {
                                                name = Name.getText().toString();
                                                Fragment fragment = new Fragment();
-                                               ReservationObject resObf = new ReservationObject(name, Diners, strDate, strTime);
-
                                                Bundle bundle = new Bundle();
-                                               bundle.putParcelable("ResObj", resObf);
+                                               bundle.putString("name", name);
+                                               bundle.putInt("dinersNum", Diners);
+                                               bundle.putString("date", strDate);
+                                               bundle.putString("time", strTime);
                                                fragment.setArguments(bundle);
-
                                                Navigation.findNavController(view).navigate(R.id.action_bookReservationFragment_to_pickSeatsFragment, bundle);
                                            }
                                        }

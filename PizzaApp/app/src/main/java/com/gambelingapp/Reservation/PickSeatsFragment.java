@@ -13,13 +13,17 @@ import androidx.fragment.app.Fragment;
 import com.gambelingapp.PizzaStore;
 import com.gambelingapp.R;
 import com.gambelingapp.ReservationObject;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
 
 
 public class PickSeatsFragment extends Fragment {
     ReservationObject reservationObject;
     Button next, skip;
     PizzaStore pizzaRestaurant;
-
+    FirebaseDatabase db;
     public PickSeatsFragment() {
         super(R.layout.fragment_pick_seats);
     }
@@ -28,17 +32,19 @@ public class PickSeatsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         Bundle bundle = this.getArguments();
-        reservationObject = (ReservationObject) bundle.getParcelable("ResObj");
+        reservationObject = new ReservationObject(getArguments().getString("name"), getArguments().getInt("dinersNum"),
+                getArguments().getString("date"),getArguments().getString("time"));
         next = view.findViewById(R.id.next);
         skip = view.findViewById(R.id.skip);
         pizzaRestaurant = ((MainActivity) requireActivity()).pizzaRestaurant;
         setBtn(view);
         reservationObject.RestaurantHandel(pizzaRestaurant, getContext());
+        db = FirebaseDatabase.getInstance();
         next.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                checkAvialability();
+                checkAvailability();
             }
         });
         skip.setOnClickListener(new View.OnClickListener() {
@@ -55,7 +61,12 @@ public class PickSeatsFragment extends Fragment {
     private void selectRandomPlace() {
     }
 
-    private void checkAvialability() {
+    private void checkAvailability() {
+        //check availability in db...
+        registerReservation();
+    }
+
+    private void registerReservation() {
     }
 
     private void setBtn(View view) {
