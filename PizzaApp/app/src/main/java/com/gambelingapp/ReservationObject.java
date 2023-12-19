@@ -13,8 +13,11 @@ public class ReservationObject{
     int numOfDiners = 0;
     String date = "";
     String time = "";
-
     String chosenPlace = "";
+
+    public String getChosenPlace() {
+        return chosenPlace;
+    }
 
     private Restaurant pizzaRestaurant;
 
@@ -41,5 +44,21 @@ public class ReservationObject{
                 }
             });
         });
+    }
+
+    public String getDinerName() {
+        return dinerName;
+    }
+
+    public int getNumOfDiners() {
+        return numOfDiners;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public String getTime() {
+        return time;
     }
 }

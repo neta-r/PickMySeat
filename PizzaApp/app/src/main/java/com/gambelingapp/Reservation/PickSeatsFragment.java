@@ -9,11 +9,11 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import com.gambelingapp.PizzaStore;
 import com.gambelingapp.R;
 import com.gambelingapp.ReservationObject;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
@@ -23,7 +23,8 @@ public class PickSeatsFragment extends Fragment {
     ReservationObject reservationObject;
     Button next, skip;
     PizzaStore pizzaRestaurant;
-    FirebaseDatabase db;
+
+    com.google.firebase.database.DatabaseReference db;
     public PickSeatsFragment() {
         super(R.layout.fragment_pick_seats);
     }
@@ -31,7 +32,6 @@ public class PickSeatsFragment extends Fragment {
     @SuppressLint("MissingInflatedId")
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        Bundle bundle = this.getArguments();
         reservationObject = new ReservationObject(getArguments().getString("name"), getArguments().getInt("dinersNum"),
                 getArguments().getString("date"),getArguments().getString("time"));
         next = view.findViewById(R.id.next);
@@ -39,12 +39,12 @@ public class PickSeatsFragment extends Fragment {
         pizzaRestaurant = ((MainActivity) requireActivity()).pizzaRestaurant;
         setBtn(view);
         reservationObject.RestaurantHandel(pizzaRestaurant, getContext());
-        db = FirebaseDatabase.getInstance();
+        db = FirebaseDatabase.getInstance().getReference();
         next.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                checkAvailability();
+                checkAvailability(v);
             }
         });
         skip.setOnClickListener(new View.OnClickListener() {
@@ -61,12 +61,22 @@ public class PickSeatsFragment extends Fragment {
     private void selectRandomPlace() {
     }
 
-    private void checkAvailability() {
+    private void checkAvailability(View view) {
         //check availability in db...
         registerReservation();
+        Navigation.findNavController(view).navigate(R.id.action_pickSeatsFragment_to_reservationSuccessFragment);
     }
 
     private void registerReservation() {
+        db.child("Reservations").child("date "+reservationObject.getDate())
+                .child("time "+reservationObject.getTime()).child("Reservation 1")
+                .child("Table tag").setValue(reservationObject.getChosenPlace());
+        db.child("Reservations").child("date "+reservationObject.getDate())
+                .child("time "+reservationObject.getTime()).child("Reservation 1")
+                .child("Number of diners").setValue(reservationObject.getNumOfDiners());
+        db.child("Reservations").child("date "+reservationObject.getDate())
+                .child("time "+reservationObject.getTime()).child("Reservation 1")
+                .child("Name of main diner").setValue(reservationObject.getDinerName());
     }
 
     private void setBtn(View view) {
