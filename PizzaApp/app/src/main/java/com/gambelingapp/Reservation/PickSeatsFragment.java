@@ -21,10 +21,9 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class PickSeatsFragment extends Fragment {
@@ -32,9 +31,7 @@ public class PickSeatsFragment extends Fragment {
     Button next, skip;
     PizzaStore pizzaRestaurant;
 
-//    FirebaseFirestore db;
-//    DocumentReference docRef;
-
+    ArrayList<String> unavailableTables = new ArrayList<>();
     public PickSeatsFragment() {
         super(R.layout.fragment_pick_seats);
     }
@@ -48,12 +45,14 @@ public class PickSeatsFragment extends Fragment {
         skip = view.findViewById(R.id.skip);
         pizzaRestaurant = ((MainActivity) requireActivity()).pizzaRestaurant;
         setBtn(view);
-        reservationObject.RestaurantHandel(pizzaRestaurant, getContext());
+        // check available places according to database at the chosen date and time and update unavailableTables list
+        checkAvailability();
+        //set onClickListener for available tables
+        reservationObject.RestaurantHandel(pizzaRestaurant, getContext(), unavailableTables);
         next.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                checkAvailability();
                 Navigation.findNavController(view).navigate(R.id.action_pickSeatsFragment_to_reservationSuccessFragment);
             }
         });
@@ -74,24 +73,14 @@ public class PickSeatsFragment extends Fragment {
 
             @Override
             public void onSuccess(DataSnapshot data) {
-                boolean isAvailable = true;
                 for (DataSnapshot snapshot: data.getChildren()){
                     String currTable = snapshot.child("Table tag").getValue().toString();
-                    if (currTable.equals(reservationObject.getChosenPlace())){
-                        isAvailable = false;
-                    }
-                }
-                if (isAvailable){
-                    registerReservation();
-                }
-                else {
-                    Toast.makeText(requireContext(), "The table you have chosen is taken, please chose another one", Toast.LENGTH_SHORT).show();;
+                    unavailableTables.add(currTable);
                 }
             }
 
             @Override
             public void onFailed(DatabaseError databaseError) {
-                //DO SOME THING WHEN GET DATA FAILED HERE
             }
         });
 
@@ -141,8 +130,8 @@ public class PickSeatsFragment extends Fragment {
 
     }
 
-    void setReservation(ReservationObject reservationObject) {
-        this.reservationObject = reservationObject;
+    void lightUpAvailablePlaces(){
+
     }
 
 }

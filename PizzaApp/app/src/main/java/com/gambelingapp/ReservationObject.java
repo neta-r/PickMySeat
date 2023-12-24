@@ -8,7 +8,9 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
-public class ReservationObject{
+import java.util.ArrayList;
+
+public class ReservationObject {
     String dinerName = "";
     int numOfDiners = 0;
     String date = "";
@@ -28,21 +30,23 @@ public class ReservationObject{
         this.time = time;
     }
 
-    public void RestaurantHandel(PizzaStore pizzaRestaurant, Context context) {
+    public void RestaurantHandel(PizzaStore pizzaRestaurant, Context context, ArrayList<String> unavailable) {
         this.pizzaRestaurant = pizzaRestaurant;
         pizzaRestaurant.getPlaces().forEach((tag, place) -> {
-            place.btn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (numOfDiners<=place.numberOfPlaces) {
-                        place.btn.setSelected(! place.btn.isSelected());
-                        chosenPlace = tag;
+            if (!unavailable.contains(tag)) {
+                place.btn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (numOfDiners <= place.numberOfPlaces) {
+                            place.btn.setSelected(!place.btn.isSelected());
+                            chosenPlace = tag;
+                        } else {
+                            Toast.makeText(context, "Too few places", Toast.LENGTH_SHORT).show();
+                        }
                     }
-                    else {
-                        Toast.makeText(context, "Too few places", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
+                });
+            }
+
         });
     }
 

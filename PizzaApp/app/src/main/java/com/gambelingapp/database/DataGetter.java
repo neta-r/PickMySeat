@@ -11,9 +11,9 @@ import com.google.firebase.database.ValueEventListener;
 public class DataGetter {
     public void readData(ReservationObject reservationObject, final OnGetDataListener listener) {
         listener.onStart();
-        String datePath = "Date " + reservationObject.getDate();
-        String timePath = "Time " + reservationObject.getTime();
-        FirebaseDatabase.getInstance().getReference().child(datePath).child(timePath).addListenerForSingleValueEvent(new ValueEventListener() {
+        String datePath = "date " + reservationObject.getDate();
+        String timePath = "time " + reservationObject.getTime();
+        FirebaseDatabase.getInstance().getReference().child("Reservations/"+datePath+"/"+timePath).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 listener.onSuccess(snapshot);

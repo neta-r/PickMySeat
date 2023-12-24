@@ -7,6 +7,8 @@ public class restaurantPlace{
     int numberOfPlaces=0;
     public ImageButton btn;
 
+    boolean isAvailable=true;
+
     public restaurantPlace (int numberOfPlaces){
         this.numberOfPlaces = numberOfPlaces;
     }
