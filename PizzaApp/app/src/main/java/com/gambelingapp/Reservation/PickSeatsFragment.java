@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 import androidx.annotation.NonNull;
@@ -11,17 +12,29 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
-import com.gambelingapp.MyDatabaseHelper;
 import com.gambelingapp.PizzaStore;
 import com.gambelingapp.R;
 import com.gambelingapp.ReservationObject;
+import com.gambelingapp.database.DataGetter;
+import com.gambelingapp.database.OnGetDataListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 
 public class PickSeatsFragment extends Fragment {
     ReservationObject reservationObject;
     Button next, skip;
     PizzaStore pizzaRestaurant;
 
-    MyDatabaseHelper myDatabaseHelper;
+//    FirebaseFirestore db;
+//    DocumentReference docRef;
+
     public PickSeatsFragment() {
         super(R.layout.fragment_pick_seats);
     }
@@ -30,19 +43,17 @@ public class PickSeatsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         reservationObject = new ReservationObject(getArguments().getString("name"), getArguments().getInt("dinersNum"),
-                getArguments().getString("date"),getArguments().getString("time"));
+                getArguments().getString("date"), getArguments().getString("time"));
         next = view.findViewById(R.id.next);
         skip = view.findViewById(R.id.skip);
         pizzaRestaurant = ((MainActivity) requireActivity()).pizzaRestaurant;
         setBtn(view);
         reservationObject.RestaurantHandel(pizzaRestaurant, getContext());
-        myDatabaseHelper = ((MainActivity) requireActivity()).myDatabaseHelper;
-
         next.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                myDatabaseHelper.addReservation(reservationObject);
+                checkAvailability();
                 Navigation.findNavController(view).navigate(R.id.action_pickSeatsFragment_to_reservationSuccessFragment);
             }
         });
@@ -55,7 +66,49 @@ public class PickSeatsFragment extends Fragment {
         });
     }
 
+    private void checkAvailability(){
+        new DataGetter().readData(reservationObject, new OnGetDataListener() {
+            @Override
+            public void onStart() {
+            }
 
+            @Override
+            public void onSuccess(DataSnapshot data) {
+                boolean isAvailable = true;
+                for (DataSnapshot snapshot: data.getChildren()){
+                    String currTable = snapshot.child("Table tag").getValue().toString();
+                    if (currTable.equals(reservationObject.getChosenPlace())){
+                        isAvailable = false;
+                    }
+                }
+                if (isAvailable){
+                    registerReservation();
+                }
+                else {
+                    Toast.makeText(requireContext(), "The table you have chosen is taken, please chose another one", Toast.LENGTH_SHORT).show();;
+                }
+            }
+
+            @Override
+            public void onFailed(DatabaseError databaseError) {
+                //DO SOME THING WHEN GET DATA FAILED HERE
+            }
+        });
+
+    }
+
+    private void registerReservation() {
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference();
+        db.child("Reservations").child("date "+reservationObject.getDate())
+                .child("time "+reservationObject.getTime()).child("Reservation 1")
+                .child("Table tag").setValue(reservationObject.getChosenPlace());
+        db.child("Reservations").child("date "+reservationObject.getDate())
+                .child("time "+reservationObject.getTime()).child("Reservation 1")
+                .child("Number of diners").setValue(reservationObject.getNumOfDiners());
+        db.child("Reservations").child("date "+reservationObject.getDate())
+                .child("time "+reservationObject.getTime()).child("Reservation 1")
+                .child("Name of main diner").setValue(reservationObject.getDinerName());
+    }
 
     private void selectRandomPlace() {
     }

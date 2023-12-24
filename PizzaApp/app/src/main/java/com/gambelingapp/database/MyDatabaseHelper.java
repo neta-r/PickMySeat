@@ -1,4 +1,4 @@
-package com.gambelingapp;
+package com.gambelingapp.database;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+
+import com.gambelingapp.ReservationObject;
 
 import java.io.FileOutputStream;
 import java.io.InputStream;
