@@ -1,6 +1,7 @@
 package com.gambelingapp.Reservation;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -27,7 +28,6 @@ import java.util.List;
 
 
 public class PickSeatsFragment extends Fragment {
-    static int reservationNum = 1;
     ReservationObject reservationObject;
     Button next, skip;
     PizzaStore pizzaRestaurant;
@@ -45,7 +45,7 @@ public class PickSeatsFragment extends Fragment {
         skip = view.findViewById(R.id.skip);
         //set onClickListener of available tables
         pizzaRestaurant = ((MainActivity) requireActivity()).pizzaRestaurant;
-        setBtn(view);
+        setBtn(view,getContext());
         reservationObject.RestaurantHandel(pizzaRestaurant);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,7 +77,10 @@ public class PickSeatsFragment extends Fragment {
     }
 
 
-    private void setBtn(View view) {
+    private void setBtn(View view, Context context) {
+        for (String tableTag: reservationObject.getAvailableTableLst()){
+            pizzaRestaurant.getPlaces().get(tableTag).setAvailable(true);
+        }
         pizzaRestaurant.getPlaces().get("pink1").setBtn(view.findViewById(R.id.pinkTable1));
         pizzaRestaurant.getPlaces().get("pink2").setBtn(view.findViewById(R.id.pinkTable2));
         pizzaRestaurant.getPlaces().get("pink3").setBtn(view.findViewById(R.id.pinkTable3));

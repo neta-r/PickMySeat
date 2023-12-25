@@ -20,6 +20,10 @@ public class ReservationObject implements Parcelable {
 
     int reservationNumber = 1;
 
+    public ArrayList<String> getAvailableTableLst() {
+        return availableTableLst;
+    }
+
     ArrayList<String> availableTableLst = new ArrayList<>();
     private Restaurant pizzaRestaurant;
 
@@ -65,7 +69,6 @@ public class ReservationObject implements Parcelable {
                     public void onClick(View v) {
                         place.btn.setSelected(!place.btn.isSelected());
                         chosenPlace = tag;
-
                     }
                 });
             }

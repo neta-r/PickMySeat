@@ -12,7 +12,7 @@ public class PizzaStore extends ViewModel implements Restaurant{
         initializeRestaurant();
     }
     public void addTable(int numberOfSeats ,String tag){
-        places.put(tag, new restaurantPlace(numberOfSeats));
+        places.put(tag, new restaurantPlace(numberOfSeats,tag));
     }
 
     public HashMap<String, restaurantPlace> getPlaces(){

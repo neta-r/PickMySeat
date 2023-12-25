@@ -1,19 +1,32 @@
 package com.gambelingapp;
 
+import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.ImageButton;
 
-public class restaurantPlace{
-    int numberOfPlaces=0;
+import androidx.core.content.ContextCompat;
+
+public class restaurantPlace {
+    String tag = "";
+    int numberOfPlaces = 0;
     public ImageButton btn;
 
-    boolean isAvailable=true;
+    public void setAvailable(boolean available) {
+        isAvailable = available;
+    }
 
-    public restaurantPlace (int numberOfPlaces){
+    boolean isAvailable = false;
+
+    public restaurantPlace(int numberOfPlaces, String tag) {
         this.numberOfPlaces = numberOfPlaces;
-    }
-    public void setBtn(View view){
-        this.btn=((ImageButton) view);
+        this.tag = tag;
     }
 
+    public void setBtn(View view) {
+        this.btn = ((ImageButton) view);
+        if (!this.isAvailable) {
+            this.btn.setEnabled(false);
+        }
+    }
 }

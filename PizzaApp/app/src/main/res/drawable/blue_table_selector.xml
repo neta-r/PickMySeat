@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <item android:drawable="@drawable/blue_table" android:state_selected="true"></item>
-    <item android:drawable="@drawable/blue_table_unselected"></item>
+    <item android:drawable="@drawable/blue_table_unavailable" android:state_enabled="false"></item>
+    <item android:drawable="@drawable/blue_table_selected" android:state_selected="true"></item>
+    <item android:drawable="@drawable/blue_table"></item>
 
 </selector>
