@@ -37,7 +37,7 @@
     </fragment>
     <fragment
         android:id="@+id/fragment_reservation_falied"
-        android:name="com.gambelingapp.Reservation.fragment_reservation_falied"
+        android:name="com.gambelingapp.Reservation.ReservationFailedFragment"
         android:label="fragment_reservation_falied"
         tools:layout="@layout/fragment_reservation_falied" />
 </navigation>
