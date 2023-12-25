@@ -17,6 +17,9 @@ public class ReservationObject implements Parcelable {
     String time = "";
     String chosenPlace = "";
 
+
+    int reservationNumber = 1;
+
     ArrayList<String> availableTableLst = new ArrayList<>();
     private Restaurant pizzaRestaurant;
 
@@ -88,6 +91,12 @@ public class ReservationObject implements Parcelable {
 
     public void setAvailableTableLst(ArrayList<String> availableTableLst) {
         this.availableTableLst.addAll(availableTableLst);
+    }
+    public void setReservationNumber(int reservationNumber) {
+        this.reservationNumber = reservationNumber;
+    }
+    public int getReservationNumber() {
+        return this.reservationNumber;
     }
 
     @Override

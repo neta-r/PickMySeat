@@ -60,6 +60,7 @@ public class BookReservationFragment extends Fragment {
     ArrayList<String> unavailableTables = new ArrayList<>();
     ArrayList<String> availableTables = new ArrayList<>();
 
+    int numberOfReservation = 1;
 
     ReservationObject reservationObject;
 
@@ -188,7 +189,6 @@ public class BookReservationFragment extends Fragment {
                                                loadDataFromDatabase(view);
 
 
-
                                            }
                                        }
                                    }
@@ -203,19 +203,25 @@ public class BookReservationFragment extends Fragment {
 
             @Override
             public void onSuccess(DataSnapshot data) {
+                numberOfReservation = (int) data.getChildrenCount()+1;
+                reservationObject.setReservationNumber(numberOfReservation);
+
                 //check unavailable tables according to database and number of diners
                 checkAvailability(data);
                 //create available tables list
                 AvailablePlace();
-                if (availableTables.size()>0) {
-                    Bundle bundle = new Bundle();
-                    bundle.putParcelable("ResObj", reservationObject);
-                    Fragment fragment = new Fragment();
-                    fragment.setArguments(bundle);
+
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("ResObj", reservationObject);
+                Fragment fragment = new Fragment();
+                fragment.setArguments(bundle);
+
+                if (availableTables.size() > 0) {
+
                     reservationObject.setAvailableTableLst(availableTables);
                     Navigation.findNavController(view).navigate(R.id.action_bookReservationFragment_to_pickSeatsFragment, bundle);
                 } else {
-                    Navigation.findNavController(view).navigate(R.id.action_bookReservationFragment_to_fragment_reservation_falied);
+                    Navigation.findNavController(view).navigate(R.id.action_bookReservationFragment_to_fragment_reservation_falied, bundle);
                 }
             }
 
@@ -243,14 +249,11 @@ public class BookReservationFragment extends Fragment {
     private void AvailablePlace() {
         if (reservationObject.getNumOfDiners() == 1 || reservationObject.getNumOfDiners() == 2) {
             buildAvailableTablesList(5, "orange");
-        }
-        else if (reservationObject.getNumOfDiners() == 3 || reservationObject.getNumOfDiners() == 4) {
+        } else if (reservationObject.getNumOfDiners() == 3 || reservationObject.getNumOfDiners() == 4) {
             buildAvailableTablesList(12, "blue");
-        }
-        else if (reservationObject.getNumOfDiners() == 5 || reservationObject.getNumOfDiners() == 6) {
+        } else if (reservationObject.getNumOfDiners() == 5 || reservationObject.getNumOfDiners() == 6) {
             buildAvailableTablesList(3, "pink");
-        }
-        else if (reservationObject.getNumOfDiners() == 7 || reservationObject.getNumOfDiners() == 8) {
+        } else if (reservationObject.getNumOfDiners() == 7 || reservationObject.getNumOfDiners() == 8) {
             buildAvailableTablesList(4, "green");
         }
 

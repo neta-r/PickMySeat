@@ -27,6 +27,7 @@ import java.util.List;
 
 
 public class PickSeatsFragment extends Fragment {
+    static int reservationNum = 1;
     ReservationObject reservationObject;
     Button next, skip;
     PizzaStore pizzaRestaurant;
@@ -46,6 +47,18 @@ public class PickSeatsFragment extends Fragment {
         pizzaRestaurant = ((MainActivity) requireActivity()).pizzaRestaurant;
         setBtn(view);
         reservationObject.RestaurantHandel(pizzaRestaurant);
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                registerReservation();
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("ResObj", reservationObject);
+                Fragment fragment = new Fragment();
+                fragment.setArguments(bundle);
+                Navigation.findNavController(view).navigate(R.id.action_pickSeatsFragment_to_reservationSuccessFragment, bundle);
+
+            }
+        });
     }
 
 
@@ -53,13 +66,13 @@ public class PickSeatsFragment extends Fragment {
     private void registerReservation() {
         DatabaseReference db = FirebaseDatabase.getInstance().getReference();
         db.child("Reservations").child("date " + reservationObject.getDate())
-                .child("time " + reservationObject.getTime()).child("Reservation 1")
+                .child("time " + reservationObject.getTime()).child("Reservation "+reservationObject.getReservationNumber())
                 .child("Table tag").setValue(reservationObject.getChosenPlace());
         db.child("Reservations").child("date " + reservationObject.getDate())
-                .child("time " + reservationObject.getTime()).child("Reservation 1")
+                .child("time " + reservationObject.getTime()).child("Reservation "+reservationObject.getReservationNumber())
                 .child("Number of diners").setValue(reservationObject.getNumOfDiners());
         db.child("Reservations").child("date " + reservationObject.getDate())
-                .child("time " + reservationObject.getTime()).child("Reservation 1")
+                .child("time " + reservationObject.getTime()).child("Reservation "+reservationObject.getReservationNumber())
                 .child("Name of main diner").setValue(reservationObject.getDinerName());
     }
 
