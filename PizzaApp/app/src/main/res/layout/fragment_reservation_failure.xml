@@ -7,11 +7,11 @@
     android:background="@drawable/background">
 
     <Button
-        android:id="@+id/Menu"
+        android:id="@+id/Book"
         android:layout_width="186dp"
         android:layout_height="70dp"
         android:fontFamily="cursive"
-        android:text="Check out our Menu"
+        android:text="Try a different date"
         android:textSize="20sp"
         app:backgroundTint="#C80609"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -26,15 +26,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="cursive"
-        android:text="Reservation been made!"
+        android:text="Sorry!"
         android:textColor="#C80609"
         android:textSize="45dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.578"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.675"
+        app:layout_constraintVertical_bias="0.676"
         tools:ignore="MissingConstraints" />
 
     <EditText
@@ -48,10 +48,26 @@
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.843"
+        app:layout_constraintHorizontal_bias="0.884"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.764"
+        app:layout_constraintVertical_bias="0.766"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/WellSeeYouIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="cursive"
+        android:text="We are fully booked in"
+        android:textColor="#C80609"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.154"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.766"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -87,22 +103,6 @@
         app:layout_constraintVertical_bias="0.84"
         tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/WellSeeYouIn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="cursive"
-        android:text="We will see you on"
-        android:textColor="#C80609"
-        android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.202"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.763"
-        tools:ignore="MissingConstraints" />
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="124dp"
@@ -112,7 +112,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/vee" />
+        app:srcCompat="@drawable/x" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

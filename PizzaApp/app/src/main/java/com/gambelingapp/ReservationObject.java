@@ -37,12 +37,9 @@ public class ReservationObject {
                 place.btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (numOfDiners <= place.numberOfPlaces) {
-                            place.btn.setSelected(!place.btn.isSelected());
-                            chosenPlace = tag;
-                        } else {
-                            Toast.makeText(context, "Too few places", Toast.LENGTH_SHORT).show();
-                        }
+                        place.btn.setSelected(!place.btn.isSelected());
+                        chosenPlace = tag;
+
                     }
                 });
             }
