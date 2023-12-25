@@ -31,8 +31,6 @@ public class PickSeatsFragment extends Fragment {
     Button next, skip;
     PizzaStore pizzaRestaurant;
 
-    ArrayList<String> unavailableTables = new ArrayList<>();
-
     public PickSeatsFragment() {
         super(R.layout.fragment_pick_seats);
     }
@@ -40,58 +38,17 @@ public class PickSeatsFragment extends Fragment {
     @SuppressLint("MissingInflatedId")
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        reservationObject = new ReservationObject(getArguments().getString("name"), getArguments().getInt("dinersNum"),
-                getArguments().getString("date"), getArguments().getString("time"));
+        Bundle bundle = this.getArguments();
+        reservationObject= (ReservationObject) bundle.getParcelable("ResObj");
         next = view.findViewById(R.id.next);
         skip = view.findViewById(R.id.skip);
+        //set onClickListener of available tables
         pizzaRestaurant = ((MainActivity) requireActivity()).pizzaRestaurant;
-        setUnavailability();
         setBtn(view);
-        // load available table from database according to chosen date and time
-        handelLoadedData(view);
+        reservationObject.RestaurantHandel(pizzaRestaurant);
     }
 
 
-    private void handelLoadedData(View view) {
-        new DataGetter().readData(reservationObject, new OnGetDataListener() {
-            @Override
-            public void onStart() {
-            }
-
-            @Override
-            public void onSuccess(DataSnapshot data) {
-                //check available tables according to database and number of diners
-                checkAvailability(data);
-                //set onClickListener for available tables
-                reservationObject.RestaurantHandel(pizzaRestaurant, getContext(), unavailableTables);
-                next.setOnClickListener(new View.OnClickListener() {
-
-                    @Override
-                    public void onClick(View v) {
-                        Navigation.findNavController(view).navigate(R.id.action_pickSeatsFragment_to_reservationSuccessFragment);
-                    }
-                });
-                skip.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        selectRandomPlace();
-                    }
-                });
-            }
-
-            @Override
-            public void onFailed(DatabaseError databaseError) {
-            }
-        });
-
-    }
-
-    private void checkAvailability(DataSnapshot data) {
-        for (DataSnapshot snapshot : data.getChildren()) {
-            String currTable = snapshot.child("Table tag").getValue().toString();
-            unavailableTables.add(currTable);
-        }
-    }
 
     private void registerReservation() {
         DatabaseReference db = FirebaseDatabase.getInstance().getReference();
@@ -106,8 +63,6 @@ public class PickSeatsFragment extends Fragment {
                 .child("Name of main diner").setValue(reservationObject.getDinerName());
     }
 
-    private void selectRandomPlace() {
-    }
 
     private void setBtn(View view) {
         pizzaRestaurant.getPlaces().get("pink1").setBtn(view.findViewById(R.id.pinkTable1));
@@ -134,64 +89,5 @@ public class PickSeatsFragment extends Fragment {
         pizzaRestaurant.getPlaces().get("orange3").setBtn(view.findViewById(R.id.orangeTable3));
         pizzaRestaurant.getPlaces().get("orange4").setBtn(view.findViewById(R.id.orangeTable4));
         pizzaRestaurant.getPlaces().get("orange5").setBtn(view.findViewById(R.id.orangeTable5));
-    }
-
-    private void setOrangeTableUnavailability() {
-        unavailableTables.add("orange1");
-        unavailableTables.add("orange2");
-        unavailableTables.add("orange3");
-        unavailableTables.add("orange4");
-        unavailableTables.add("orange5");
-    }
-
-    private void setBlueTableUnavailability() {
-        unavailableTables.add("blue1");
-        unavailableTables.add("blue2");
-        unavailableTables.add("blue3");
-        unavailableTables.add("blue4");
-        unavailableTables.add("blue5");
-        unavailableTables.add("blue6");
-        unavailableTables.add("blue7");
-        unavailableTables.add("blue8");
-        unavailableTables.add("blue9");
-        unavailableTables.add("blue10");
-        unavailableTables.add("blue11");
-        unavailableTables.add("blue12");
-    }
-
-    private void setPinkTableUnavailability() {
-        unavailableTables.add("pink1");
-        unavailableTables.add("pink2");
-        unavailableTables.add("pink3");
-    }
-
-    private void setGreenTableUnavailability() {
-        unavailableTables.add("green1");
-        unavailableTables.add("green2");
-        unavailableTables.add("green3");
-        unavailableTables.add("green4");
-    }
-
-    private void setUnavailability() {
-        if (reservationObject.getNumOfDiners() == 1 || reservationObject.getNumOfDiners() == 2) {
-            setBlueTableUnavailability();
-            setPinkTableUnavailability();
-            setGreenTableUnavailability();
-        }
-        if (reservationObject.getNumOfDiners() == 3 || reservationObject.getNumOfDiners() == 4) {
-            setOrangeTableUnavailability();
-            setPinkTableUnavailability();
-            setGreenTableUnavailability();
-        }
-        if (reservationObject.getNumOfDiners() == 5 || reservationObject.getNumOfDiners() == 6) {
-            setBlueTableUnavailability();
-            setOrangeTableUnavailability();
-            setGreenTableUnavailability();
-        }
-        if (reservationObject.getNumOfDiners() == 7 || reservationObject.getNumOfDiners() == 8) {
-            setBlueTableUnavailability();
-            setPinkTableUnavailability();
-            setOrangeTableUnavailability();
-        }
     }
 }

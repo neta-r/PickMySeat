@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_bookReservationFragment_to_pickSeatsFragment"
             app:destination="@id/pickSeatsFragment" />
+        <action
+            android:id="@+id/action_bookReservationFragment_to_fragment_reservation_falied"
+            app:destination="@id/fragment_reservation_falied" />
     </fragment>
     <fragment
         android:id="@+id/reservationSuccessFragment"
@@ -32,4 +35,9 @@
             android:id="@+id/action_mainFragment_to_bookReservationFragment"
             app:destination="@id/bookReservationFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/fragment_reservation_falied"
+        android:name="com.gambelingapp.Reservation.fragment_reservation_falied"
+        android:label="fragment_reservation_falied"
+        tools:layout="@layout/fragment_reservation_falied" />
 </navigation>

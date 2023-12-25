@@ -22,9 +22,15 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import com.gambelingapp.PizzaStore;
 import com.gambelingapp.R;
 import com.gambelingapp.ReservationObject;
+import com.gambelingapp.database.DataGetter;
+import com.gambelingapp.database.OnGetDataListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 
@@ -50,6 +56,12 @@ public class BookReservationFragment extends Fragment {
     String strDate = "";
     String strTime = "";
     String name = "";
+
+    ArrayList<String> unavailableTables = new ArrayList<>();
+    ArrayList<String> availableTables = new ArrayList<>();
+
+
+    ReservationObject reservationObject;
 
     public BookReservationFragment() {
         super(R.layout.fragment_book_reservation);
@@ -172,18 +184,76 @@ public class BookReservationFragment extends Fragment {
                                                Toast.makeText(requireActivity().getApplicationContext(), "Type name", Toast.LENGTH_SHORT).show();
                                            } else {
                                                name = Name.getText().toString();
-                                               Fragment fragment = new Fragment();
-                                               Bundle bundle = new Bundle();
-                                               bundle.putString("name", name);
-                                               bundle.putInt("dinersNum", Diners);
-                                               bundle.putString("date", strDate);
-                                               bundle.putString("time", strTime);
-                                               fragment.setArguments(bundle);
-                                               Navigation.findNavController(view).navigate(R.id.action_bookReservationFragment_to_pickSeatsFragment, bundle);
+                                               reservationObject = new ReservationObject(name, Diners, strDate, strTime);
+                                               loadDataFromDatabase(view);
+
+
+
                                            }
                                        }
                                    }
         );
+    }
+
+    private void loadDataFromDatabase(View view) {
+        new DataGetter().readData(reservationObject, new OnGetDataListener() {
+            @Override
+            public void onStart() {
+            }
+
+            @Override
+            public void onSuccess(DataSnapshot data) {
+                //check unavailable tables according to database and number of diners
+                checkAvailability(data);
+                //create available tables list
+                AvailablePlace();
+                if (availableTables.size()>0) {
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelable("ResObj", reservationObject);
+                    Fragment fragment = new Fragment();
+                    fragment.setArguments(bundle);
+                    reservationObject.setAvailableTableLst(availableTables);
+                    Navigation.findNavController(view).navigate(R.id.action_bookReservationFragment_to_pickSeatsFragment, bundle);
+                } else {
+                    Navigation.findNavController(view).navigate(R.id.action_bookReservationFragment_to_fragment_reservation_falied);
+                }
+            }
+
+            @Override
+            public void onFailed(DatabaseError databaseError) {
+            }
+        });
+    }
+
+    private void checkAvailability(DataSnapshot data) {
+        for (DataSnapshot snapshot : data.getChildren()) {
+            String currTable = snapshot.child("Table tag").getValue().toString();
+            unavailableTables.add(currTable);
+        }
+    }
+
+    private void buildAvailableTablesList(int numberOfTable, String tableColor) {
+        for (int i = 1; i <= numberOfTable; i++) {
+            if (!unavailableTables.contains(tableColor + i)) {
+                availableTables.add(tableColor + i);
+            }
+        }
+    }
+
+    private void AvailablePlace() {
+        if (reservationObject.getNumOfDiners() == 1 || reservationObject.getNumOfDiners() == 2) {
+            buildAvailableTablesList(5, "orange");
+        }
+        else if (reservationObject.getNumOfDiners() == 3 || reservationObject.getNumOfDiners() == 4) {
+            buildAvailableTablesList(12, "blue");
+        }
+        else if (reservationObject.getNumOfDiners() == 5 || reservationObject.getNumOfDiners() == 6) {
+            buildAvailableTablesList(3, "pink");
+        }
+        else if (reservationObject.getNumOfDiners() == 7 || reservationObject.getNumOfDiners() == 8) {
+            buildAvailableTablesList(4, "green");
+        }
+
     }
 }
 
