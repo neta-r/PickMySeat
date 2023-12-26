@@ -1,6 +1,7 @@
 package com.gambelingapp.Reservation;
 
 import static java.lang.Integer.parseInt;
+import static java.lang.Integer.valueOf;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -39,7 +40,6 @@ import java.util.Calendar;
 
 public class BookReservationFragment extends Fragment {
 
-    int SelectedNumberOfDiners = -1;
     Button Date, Time, Reserve;
     EditText Name;
 
@@ -49,12 +49,6 @@ public class BookReservationFragment extends Fragment {
 
     int Diners = 0;
     TextWatcher tt = null;
-    Calendar c = null;
-    int year = -1;
-    int month = -1;
-    int day = -1;
-    int hour = -1;
-    int minute = -1;
 
     String strDate = "";
     String strTime = "";
@@ -127,27 +121,7 @@ public class BookReservationFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
-                c = Calendar.getInstance();
-                year = c.get(Calendar.YEAR);
-                month = c.get(Calendar.MONTH);
-                day = c.get(Calendar.DAY_OF_MONTH);
-
-
-                DatePickerDialog datePickerDialog = new DatePickerDialog(getView().getContext(),
-                        new DatePickerDialog.OnDateSetListener() {
-                            @Override
-                            public void onDateSet(DatePicker view, int year,
-                                                  int monthOfYear, int dayOfMonth) {
-                                String d = Integer.toString(dayOfMonth);
-                                String m = Integer.toString(monthOfYear + 1);
-                                String y = Integer.toString(year);
-                                if (dayOfMonth < 10) d = "0" + Integer.toString(dayOfMonth);
-                                if (monthOfYear < 10) m = "0" + Integer.toString(monthOfYear);
-                                strDate = d + "-" + m + "-" + y;
-                                txtDate.setText(strDate);
-                            }
-                        }, year, month, day);
-                datePickerDialog.show();
+                showDatePickerDialog();
             }
         });
 
@@ -162,7 +136,7 @@ public class BookReservationFragment extends Fragment {
         Reserve.setOnClickListener(new View.OnClickListener() {
                                        @Override
                                        public void onClick(View v) {
-                                           if (year == -1 || month == -1 || day == -1) {
+                                           if (strDate.equals("")) {
                                                Toast.makeText(requireActivity().getApplicationContext(), "Pick Date", Toast.LENGTH_SHORT).show();
                                            } else if (strTime.equals("")) {
                                                Toast.makeText(requireActivity().getApplicationContext(), "Pick Time", Toast.LENGTH_SHORT).show();
@@ -248,22 +222,31 @@ public class BookReservationFragment extends Fragment {
 
     }
 
+    private void initializePicker(String[] pickerValues, NumberPicker picker) {
+        picker.setMinValue(0);
+        picker.setMaxValue(pickerValues.length - 1);
+        picker.setDisplayedValues(pickerValues);
+    }
+
+    private String[] initializeValues(int max) {
+        String[] values = new String[max];
+        for (int i = 0; i < max; i++) {
+            values[i] = Integer.toString(i + 1);
+        }
+        return values;
+    }
+
     private void showTimePickerDialog() {
         Dialog timePickerDialog = new Dialog(requireContext());
-        timePickerDialog.setCancelable(true);
+        timePickerDialog.setCancelable(false);
         timePickerDialog.setContentView(R.layout.time_picker_dialog);
         NumberPicker hourPicker = timePickerDialog.findViewById(R.id.hourPicker);
         NumberPicker minutePicker = timePickerDialog.findViewById(R.id.minutePicker);
         String[] pickerHoursValues = new String[]{"10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22"};
         String[] pickerMinutesValues = new String[]{"00", "15", "30", "45"};
 
-        hourPicker.setMinValue(0);
-        hourPicker.setMaxValue(pickerHoursValues.length-1);
-        minutePicker.setMinValue(0);
-        minutePicker.setMaxValue(pickerMinutesValues.length-1);
-
-        hourPicker.setDisplayedValues(pickerHoursValues);
-        minutePicker.setDisplayedValues(pickerMinutesValues);
+        initializePicker(pickerHoursValues, hourPicker);
+        initializePicker(pickerMinutesValues, minutePicker);
 
         Button ok = timePickerDialog.findViewById(R.id.Ok);
         ok.setOnClickListener(new View.OnClickListener() {
@@ -275,6 +258,39 @@ public class BookReservationFragment extends Fragment {
             }
         });
         timePickerDialog.show();
+    }
+
+    private void showDatePickerDialog() {
+        Dialog datePickerDialog = new Dialog(requireContext());
+        datePickerDialog.setCancelable(false);
+        datePickerDialog.setContentView(R.layout.date_picker_dialog);
+        NumberPicker dayPicker = datePickerDialog.findViewById(R.id.dayPicker);
+        NumberPicker monthPicker = datePickerDialog.findViewById(R.id.monthPicker);
+        NumberPicker yearPicker = datePickerDialog.findViewById(R.id.yearPicker);
+        String[] pickerDayValues = initializeValues(31);
+        String[] pickerMonthValues = initializeValues(12);
+        String[] pickerYearValues = new String[]{"2023", "2024"};
+
+        initializePicker(pickerDayValues, dayPicker);
+        initializePicker(pickerMonthValues, monthPicker);
+        initializePicker(pickerYearValues, yearPicker);
+
+
+        Button ok = datePickerDialog.findViewById(R.id.Ok);
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String d = pickerDayValues[dayPicker.getValue()];
+                String m = pickerMonthValues[monthPicker.getValue()];
+                String y = pickerYearValues[yearPicker.getValue()];
+                if (valueOf(pickerDayValues[dayPicker.getValue()]) < 10) d = "0" + pickerDayValues[dayPicker.getValue()];
+                if (valueOf(pickerMonthValues[monthPicker.getValue()]) < 10) m = "0" + pickerMonthValues[monthPicker.getValue()];
+                strDate = d + "-" + m + "-" + y;
+                txtDate.setText(strDate);
+                datePickerDialog.dismiss();
+            }
+        });
+        datePickerDialog.show();
     }
 
 }
