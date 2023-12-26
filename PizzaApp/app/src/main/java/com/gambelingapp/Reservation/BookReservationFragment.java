@@ -183,6 +183,8 @@ public class BookReservationFragment extends Fragment {
                                                Toast.makeText(requireActivity().getApplicationContext(), "Select number of diners", Toast.LENGTH_SHORT).show();
                                            } else if (Name.getText().toString().equals("")) {
                                                Toast.makeText(requireActivity().getApplicationContext(), "Type name", Toast.LENGTH_SHORT).show();
+                                           } else if (!Name.getText().toString().matches("[a-zA-Z]+")) {
+                                               Toast.makeText(requireActivity().getApplicationContext(), "Only alphabetic characters are allowed", Toast.LENGTH_SHORT).show();
                                            } else {
                                                name = Name.getText().toString();
                                                reservationObject = new ReservationObject(name, Diners, strDate, strTime);
