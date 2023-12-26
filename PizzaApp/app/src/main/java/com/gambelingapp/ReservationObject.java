@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -15,8 +16,9 @@ public class ReservationObject implements Parcelable {
     int numOfDiners = 0;
     String date = "";
     String time = "";
-    String chosenPlace = "";
+    ImageButton chosenPlaceButton = null;
 
+    String chosenPlaceTag = "";
 
     int reservationNumber = 1;
 
@@ -32,7 +34,6 @@ public class ReservationObject implements Parcelable {
         numOfDiners = in.readInt();
         date = in.readString();
         time = in.readString();
-        chosenPlace = in.readString();
         availableTableLst = in.createStringArrayList();
     }
 
@@ -49,7 +50,7 @@ public class ReservationObject implements Parcelable {
     };
 
     public String getChosenPlace() {
-        return chosenPlace;
+        return chosenPlaceTag;
     }
 
 
@@ -68,7 +69,11 @@ public class ReservationObject implements Parcelable {
                     @Override
                     public void onClick(View v) {
                         place.btn.setSelected(!place.btn.isSelected());
-                        chosenPlace = tag;
+                        if (chosenPlaceButton!=null) {
+                            chosenPlaceButton.setSelected(false);
+                        }
+                        chosenPlaceButton=place.btn;
+                        chosenPlaceTag=place.tag;
                     }
                 });
             }
@@ -113,7 +118,6 @@ public class ReservationObject implements Parcelable {
         dest.writeInt(numOfDiners);
         dest.writeString(date);
         dest.writeString(time);
-        dest.writeString(chosenPlace);
         dest.writeStringList(availableTableLst);
     }
 }
