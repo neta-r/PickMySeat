@@ -3,7 +3,9 @@ package com.gambelingapp.Reservation;
 import static java.lang.Integer.parseInt;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.text.Editable;
@@ -13,6 +15,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -152,24 +155,8 @@ public class BookReservationFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
-                c = Calendar.getInstance();
-                hour = c.get(Calendar.HOUR_OF_DAY);
-                minute = c.get(Calendar.MINUTE);
 
-                // Launch Time Picker Dialog
-                TimePickerDialog timePickerDialog = new TimePickerDialog(getView().getContext(),
-                        new TimePickerDialog.OnTimeSetListener() {
-
-                            @SuppressLint("SetTextI18n")
-                            @Override
-                            public void onTimeSet(TimePicker view, int hourOfDay,
-                                                  int minute) {
-                                if (minute < 10) strTime = hourOfDay + ":0" + minute;
-                                else strTime = hourOfDay + ":" + minute;
-                                txtTime.setText(strTime);
-                            }
-                        }, hour, minute, false);
-                timePickerDialog.show();
+                showTimePickerDialog();
             }
         });
         Reserve.setOnClickListener(new View.OnClickListener() {
@@ -177,7 +164,7 @@ public class BookReservationFragment extends Fragment {
                                        public void onClick(View v) {
                                            if (year == -1 || month == -1 || day == -1) {
                                                Toast.makeText(requireActivity().getApplicationContext(), "Pick Date", Toast.LENGTH_SHORT).show();
-                                           } else if (hour == -1 || minute == -1) {
+                                           } else if (strTime.equals("")) {
                                                Toast.makeText(requireActivity().getApplicationContext(), "Pick Time", Toast.LENGTH_SHORT).show();
                                            } else if (Integer.parseInt(NumberOfDiners.getText().toString()) == 0) {
                                                Toast.makeText(requireActivity().getApplicationContext(), "Select number of diners", Toast.LENGTH_SHORT).show();
@@ -205,7 +192,7 @@ public class BookReservationFragment extends Fragment {
 
             @Override
             public void onSuccess(DataSnapshot data) {
-                numberOfReservation = (int) data.getChildrenCount()+1;
+                numberOfReservation = (int) data.getChildrenCount() + 1;
                 reservationObject.setReservationNumber(numberOfReservation);
 
                 //check unavailable tables according to database and number of diners
@@ -260,5 +247,36 @@ public class BookReservationFragment extends Fragment {
         }
 
     }
+
+    private void showTimePickerDialog() {
+        Dialog timePickerDialog = new Dialog(requireContext());
+        timePickerDialog.setCancelable(true);
+        timePickerDialog.setContentView(R.layout.time_picker_dialog);
+        NumberPicker hourPicker = timePickerDialog.findViewById(R.id.hourPicker);
+        NumberPicker minutePicker = timePickerDialog.findViewById(R.id.minutePicker);
+        String[] pickerHoursValues = new String[]{"10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22"};
+        String[] pickerMinutesValues = new String[]{"00", "15", "30", "45"};
+
+        hourPicker.setMinValue(0);
+        hourPicker.setMaxValue(pickerHoursValues.length-1);
+        minutePicker.setMinValue(0);
+        minutePicker.setMaxValue(pickerMinutesValues.length-1);
+
+        hourPicker.setDisplayedValues(pickerHoursValues);
+        minutePicker.setDisplayedValues(pickerMinutesValues);
+
+        Button ok = timePickerDialog.findViewById(R.id.Ok);
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                strTime = pickerHoursValues[hourPicker.getValue()] + ":" + pickerMinutesValues[minutePicker.getValue()];
+                txtTime.setText(strTime);
+                timePickerDialog.dismiss();
+            }
+        });
+        timePickerDialog.show();
+    }
+
 }
+
 
