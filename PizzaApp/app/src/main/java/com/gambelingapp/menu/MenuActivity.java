@@ -33,7 +33,7 @@ public class MenuActivity extends AppCompatActivity {
         rv = findViewById(R.id.pizzaMenu);
         setPizzaNames();
         setPizzaImages();
-        linearLayoutManager = new LinearLayoutManager(MenuActivity.this, LinearLayoutManager.HORIZONTAL, true);
+        linearLayoutManager = new CenterZoomLayoutManager(MenuActivity.this, LinearLayoutManager.HORIZONTAL, false);
         adapter = new pizzaAdapter(pizzaNames,pizzaImages);
         rv.setLayoutManager(linearLayoutManager);
         rv.setAdapter(adapter);
