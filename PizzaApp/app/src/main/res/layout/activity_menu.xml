@@ -8,9 +8,11 @@
     android:background="@drawable/background">
 
    <androidx.recyclerview.widget.RecyclerView
-       android:id= "@+id/pizzaMenu"
-       android:scrollbars="horizontal"
+       android:id="@+id/pizzaMenu"
        android:layout_width="wrap_content"
-       android:layout_height="wrap_content"/>
+       android:layout_height="wrap_content"
+       android:scrollbars="horizontal"
+       android:layout_gravity="center"
+       />
 </LinearLayout>
 
