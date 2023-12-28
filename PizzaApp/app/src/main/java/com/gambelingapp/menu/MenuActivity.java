@@ -58,43 +58,4 @@ public class MenuActivity extends AppCompatActivity {
         pizzaImages.add(R.drawable.pizza5);
         pizzaImages.add(R.drawable.pizza6);
     }
-
-    class pizzaAdapter extends RecyclerView.Adapter<pizzaAdapter.pizzaHolder>{
-        ArrayList<String> pizzaNames;
-        ArrayList<Integer> pizzaImages;
-        public pizzaAdapter(ArrayList<String> pizzaNames, ArrayList<Integer> pizzaImages) {
-            this.pizzaNames=pizzaNames;
-            this.pizzaImages=pizzaImages;
-        }
-
-        @NonNull
-        @Override
-        public pizzaHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(MenuActivity.this).inflate(R.layout.pizza_item, parent, false);
-            return new pizzaHolder(view);
-
-        }
-
-        @Override
-        public void onBindViewHolder(@NonNull pizzaHolder holder, int position) {
-            holder.pizzaName.setText(pizzaNames.get(position));
-            holder.pizzaImage.setImageResource(pizzaImages.get(position));
-        }
-
-        @Override
-        public int getItemCount() {
-            return pizzaNames.size();
-        }
-
-        class pizzaHolder extends RecyclerView.ViewHolder{
-            TextView pizzaName;
-            ImageView pizzaImage;
-
-            public pizzaHolder(@NonNull View itemView) {
-                super(itemView);
-                this.pizzaName =itemView.findViewById(R.id.pizzaName);
-                this.pizzaImage = itemView.findViewById(R.id.pizzaImage);
-            }
-        }
-    }
 }
