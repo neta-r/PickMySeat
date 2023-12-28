@@ -1,6 +1,0 @@
-package com.gambelingapp.menu;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-public class Menu extends AppCompatActivity {
-}

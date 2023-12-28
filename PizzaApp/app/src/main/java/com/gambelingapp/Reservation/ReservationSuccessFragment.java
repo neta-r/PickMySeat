@@ -1,6 +1,7 @@
 package com.gambelingapp.Reservation;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +13,7 @@ import androidx.fragment.app.Fragment;
 
 import com.gambelingapp.R;
 import com.gambelingapp.ReservationObject;
+import com.gambelingapp.menu.MenuActivity;
 
 public class ReservationSuccessFragment extends Fragment{
     Button Menu;
@@ -30,7 +32,13 @@ public class ReservationSuccessFragment extends Fragment{
         date.setText("We will see you on "+reservationObject.getDate());
         time.setText("at "+reservationObject.getTime());
         Menu = (Button) view.findViewById(R.id.Menu);
-
+        Menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent menuActivity = new Intent(requireContext(), MenuActivity.class);
+                startActivity(menuActivity);
+            }
+        });
     }
 
 }
