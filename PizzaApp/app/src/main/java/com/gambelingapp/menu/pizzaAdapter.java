@@ -31,13 +31,14 @@ class pizzaAdapter extends RecyclerView.Adapter<pizzaAdapter.pizzaHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull pizzaHolder holder, int position) {
-        holder.pizzaName.setText(pizzaNames.get(position));
-        holder.pizzaImage.setImageResource(pizzaImages.get(position));
+        int realPos = position % pizzaImages.size();
+        holder.pizzaName.setText(pizzaNames.get(realPos));
+        holder.pizzaImage.setImageResource(pizzaImages.get(realPos));
     }
 
     @Override
     public int getItemCount() {
-        return pizzaNames.size();
+        return Integer.MAX_VALUE;
     }
 
     class pizzaHolder extends RecyclerView.ViewHolder{
