@@ -20,6 +20,9 @@
         <action
             android:id="@+id/action_menuFragment_to_soupMenuFragment"
             app:destination="@id/soupMenuFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_dessertMenuFragment"
+            app:destination="@id/dessertMenuFragment" />
     </fragment>
     <fragment
         android:id="@+id/pastaMenuFragment"
@@ -29,4 +32,8 @@
         android:id="@+id/soupMenuFragment"
         android:name="com.gambelingapp.menu.soupMenuFragment"
         android:label="soupMenuFragment" />
+    <fragment
+        android:id="@+id/dessertMenuFragment"
+        android:name="com.gambelingapp.menu.dessertMenuFragment"
+        android:label="dessertMenuFragment" />
 </navigation>
