@@ -24,6 +24,7 @@ public class MenuActivity extends AppCompatActivity {
     ArrayList<String> pizzaNames;
 
     ArrayList<Integer> pizzaImages;
+    ArrayList<String> pizzaPrices;
     LinearLayoutManager linearLayoutManager;
     pizzaAdapter adapter;
 
@@ -32,30 +33,44 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
         rv = findViewById(R.id.pizzaMenu);
         setPizzaNames();
+        setPizzaPrices();
         setPizzaImages();
         linearLayoutManager = new CenterZoomLayoutManager(MenuActivity.this, LinearLayoutManager.HORIZONTAL, false);
-        adapter = new pizzaAdapter(pizzaNames,pizzaImages);
+        adapter = new pizzaAdapter(pizzaNames,pizzaImages,pizzaPrices);
         rv.setLayoutManager(linearLayoutManager);
         rv.setAdapter(adapter);
     }
 
+    void setPizzaPrices(){
+        pizzaPrices = new ArrayList<>();
+        pizzaPrices.add("4$");
+        pizzaPrices.add("4.5$");
+        pizzaPrices.add("5$");
+        pizzaPrices.add("5$");
+        pizzaPrices.add("5$");
+        pizzaPrices.add("5.5$");
+
+    }
+
     void setPizzaNames(){
         pizzaNames = new ArrayList<>();
+        pizzaNames.add("Plain");
+        pizzaNames.add("Tomatoes");
         pizzaNames.add("Vegan");
         pizzaNames.add("Black olives");
         pizzaNames.add("Mushrooms");
         pizzaNames.add("Pineapple");
-        pizzaNames.add("Tomatoes");
-        pizzaNames.add("Plain");
+
     }
 
     void setPizzaImages(){
         pizzaImages = new ArrayList<>();
+        pizzaImages.add(R.drawable.pizza6);
+        pizzaImages.add(R.drawable.pizza5);
         pizzaImages.add(R.drawable.pizza1);
         pizzaImages.add(R.drawable.pizza2);
         pizzaImages.add(R.drawable.pizza3);
         pizzaImages.add(R.drawable.pizza4);
-        pizzaImages.add(R.drawable.pizza5);
-        pizzaImages.add(R.drawable.pizza6);
+
     }
 }
