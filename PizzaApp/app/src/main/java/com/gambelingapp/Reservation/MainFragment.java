@@ -13,8 +13,9 @@ import androidx.navigation.Navigation;
 
 import com.gambelingapp.R;
 import com.gambelingapp.menu.MenuActivity;
+import com.gambelingapp.menu.pizza.pizzaMenuFragment;
 
-public class MainFragment  extends Fragment{
+public class MainFragment extends Fragment{
 
     Button PickSeats, Menu;
     public MainFragment() {

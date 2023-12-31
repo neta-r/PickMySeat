@@ -1,4 +1,4 @@
-package com.gambelingapp.menu;
+package com.gambelingapp.menu.pizza;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,8 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.gambelingapp.R;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 

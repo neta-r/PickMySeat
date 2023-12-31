@@ -13,7 +13,6 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
     PizzaStore pizzaRestaurant;
-    //MyDatabaseHelper myDatabaseHelper;
     DatabaseReference databaseReference;
 
     @Override
@@ -24,19 +23,6 @@ public class MainActivity extends AppCompatActivity {
         pizzaRestaurant.initializeRestaurant();
         FirebaseApp.initializeApp(this);
         databaseReference = FirebaseDatabase.getInstance().getReference("Calender");
-//        myDatabaseHelper= new MyDatabaseHelper(this);
-//        try{
-//            myDatabaseHelper.CheckDB();
-//        } catch (Exception e){
-//            e.printStackTrace();
-//        }
-//
-//        try{
-//            myDatabaseHelper.OpenDatabase();
-//        } catch (Exception e){
-//            e.printStackTrace();
-//        }
-//
     }
 
 }

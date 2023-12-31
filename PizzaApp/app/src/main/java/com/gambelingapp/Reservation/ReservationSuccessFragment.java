@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment;
 
 import com.gambelingapp.R;
 import com.gambelingapp.ReservationObject;
-import com.gambelingapp.menu.MenuActivity;
+import com.gambelingapp.menu.pizza.pizzaMenuFragment;
 
 public class ReservationSuccessFragment extends Fragment{
     Button Menu;
@@ -35,7 +35,7 @@ public class ReservationSuccessFragment extends Fragment{
         Menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent menuActivity = new Intent(requireContext(), MenuActivity.class);
+                Intent menuActivity = new Intent(requireContext(), pizzaMenuFragment.class);
                 startActivity(menuActivity);
             }
         });
