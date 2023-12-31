@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/bookReservationFragment">
     <fragment
         android:id="@+id/pickSeatsFragment"
         android:name="com.gambelingapp.Reservation.PickSeatsFragment"
@@ -27,14 +27,6 @@
         android:id="@+id/reservationSuccessFragment"
         android:name="com.gambelingapp.Reservation.ReservationSuccessFragment"
         android:label="ReservationSuccessFragment" />
-    <fragment
-        android:id="@+id/mainFragment"
-        android:name="com.gambelingapp.Reservation.MainFragment"
-        android:label="MainFragment" >
-        <action
-            android:id="@+id/action_mainFragment_to_bookReservationFragment"
-            app:destination="@id/bookReservationFragment" />
-    </fragment>
     <fragment
         android:id="@+id/fragment_reservation_falied"
         android:name="com.gambelingapp.Reservation.ReservationFailedFragment"

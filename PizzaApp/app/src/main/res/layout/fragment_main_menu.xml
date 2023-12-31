@@ -1,72 +1,108 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
 
-    <RelativeLayout
+    <ImageButton
+        android:id="@+id/dessertBtn"
+        android:layout_width="110sp"
+        android:layout_height="110sp"
+        android:background="#0000"
+        android:scaleType="fitCenter"
+        android:src="@drawable/dessert_menu_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.92"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.822" />
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        android:fontFamily="cursive"
+        android:text="What would you like to eat?"
+        android:textColor="#C80609"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
 
-        <ImageButton
-            android:id="@+id/dessertBtn"
-            android:layout_width="410dp"
-            android:layout_height="200dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentStart="true"
-            android:background="#F498AD"
-            android:scaleType="fitCenter"
-            tools:srcCompat="@drawable/dessert_menu_button" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.482" />
 
-        <ImageButton
-            android:id="@+id/drinkBtn"
-            android:layout_below="@id/dessertBtn"
-            android:layout_width="206dp"
-            android:layout_height="300dp"
-            android:background="#ceb6ff"
-            android:scaleType="fitCenter"
-            android:layout_alignParentStart="true"
-            tools:srcCompat="@drawable/drink_menu_button" />
+    <ImageButton
+        android:id="@+id/pastaBtn"
+        android:layout_width="110sp"
+        android:layout_height="110sp"
+        android:background="#0000"
+        android:scaleType="fitCenter"
+        android:src="@drawable/pasta_menu_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.724"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.624" />
 
-        <ImageButton
-            android:id="@+id/soupBtn"
-            android:layout_below="@id/dessertBtn"
-            android:layout_width="206dp"
-            android:layout_height="220dp"
-            android:background="#E0AF"
-            android:scaleType="fitCenter"
-            android:layout_alignParentEnd="true"
-            tools:srcCompat="@drawable/soup_menu_button" />
+    <ImageButton
+        android:id="@+id/pizzaBtn"
+        android:layout_width="110sp"
+        android:layout_height="110sp"
+        android:background="#0000"
+        android:scaleType="fitCenter"
+        android:src="@drawable/pizza_menu_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.315"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.624" />
 
-        <ImageButton
-            android:id="@+id/pizzaBtn"
-            android:layout_width="205dp"
-            android:layout_height="300dp"
-            android:layout_below="@id/soupBtn"
-            android:layout_alignParentEnd="true"
-            android:background="#ceb"
-            android:scaleType="fitCenter"
-            android:layout_alignParentBottom="true"
+    <ImageButton
+        android:id="@+id/drinkBtn"
+        android:layout_width="110sp"
+        android:layout_height="110sp"
+        android:background="#0000"
+        android:scaleType="fitCenter"
+        android:src="@drawable/drink_menu_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.063"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.822" />
 
-            tools:srcCompat="@drawable/pizza_menu_button" />
+    <Button
+        android:id="@+id/Seats"
+        android:layout_width="186dp"
+        android:layout_height="70dp"
+        android:fontFamily="cursive"
+        android:text="Secure your place now!"
+        android:textSize="20sp"
+        app:backgroundTint="#C80609"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.972" />
 
-        <ImageButton
-            android:id="@+id/pastaBtn"
-            android:layout_width="206dp"
-            android:layout_height="220dp"
-            android:layout_alignParentBottom="true"
-            android:layout_below="@id/drinkBtn"
-            android:layout_alignParentStart="true"
-            android:background="#DB5A"
-            android:scaleType="fitCenter"
-            tools:srcCompat="@drawable/pasta_menu_button" />
+    <ImageButton
+        android:id="@+id/soupBtn"
+        android:layout_width="110sp"
+        android:layout_height="110sp"
+        android:background="#0000"
+        android:scaleType="fitCenter"
+        android:src="@drawable/soup_menu_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.845" />
 
-    </RelativeLayout>
-
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
