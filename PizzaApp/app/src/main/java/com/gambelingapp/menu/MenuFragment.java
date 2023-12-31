@@ -37,5 +37,13 @@ public class MenuFragment extends Fragment {
             }
         });
 
+        ImageButton pasta = view.findViewById(R.id.pastaBtn);
+        pasta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_menuFragment_to_pastaMenuFragment);
+            }
+        });
+
     }
 }

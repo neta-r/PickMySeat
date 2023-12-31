@@ -5,7 +5,7 @@
     app:startDestination="@id/menuFragment">
     <fragment
         android:id="@+id/pizzaMenuFragment"
-        android:name="com.gambelingapp.menu.pizza.pizzaMenuFragment"
+        android:name="com.gambelingapp.menu.pizzaMenuFragment"
         android:label="pizzaMenuFragment" />
     <fragment
         android:id="@+id/menuFragment"
@@ -14,5 +14,12 @@
         <action
             android:id="@+id/action_menuFragment_to_pizzaMenuFragment"
             app:destination="@id/pizzaMenuFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_pastaMenuFragment"
+            app:destination="@id/pastaMenuFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/pastaMenuFragment"
+        android:name="com.gambelingapp.menu.pastaMenuFragment"
+        android:label="pastaMenuFragment" />
 </navigation>

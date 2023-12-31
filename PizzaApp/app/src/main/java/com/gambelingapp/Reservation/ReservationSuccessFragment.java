@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment;
 
 import com.gambelingapp.R;
 import com.gambelingapp.ReservationObject;
-import com.gambelingapp.menu.pizza.pizzaMenuFragment;
+import com.gambelingapp.menu.pizzaMenuFragment;
 
 public class ReservationSuccessFragment extends Fragment{
     Button Menu;

@@ -1,4 +1,4 @@
-package com.gambelingapp.menu.pizza;
+package com.gambelingapp.menu;
 
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.gambelingapp.R;
-import com.gambelingapp.menu.CenterZoomLayoutManager;
 
 
 import java.util.ArrayList;
@@ -22,7 +21,7 @@ public class pizzaMenuFragment extends Fragment {
     ArrayList<Integer> pizzaImages;
     ArrayList<String> pizzaPrices;
     LinearLayoutManager linearLayoutManager;
-    pizzaAdapter adapter;
+    itemAdapter adapter;
     public pizzaMenuFragment() {
         super(R.layout.fragment_pizza);
     }
@@ -33,7 +32,7 @@ public class pizzaMenuFragment extends Fragment {
         setPizzaPrices();
         setPizzaImages();
         linearLayoutManager = new CenterZoomLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-        adapter = new pizzaAdapter(pizzaNames,pizzaImages,pizzaPrices);
+        adapter = new itemAdapter(pizzaNames,pizzaImages,pizzaPrices);
         rv.setLayoutManager(linearLayoutManager);
         rv.setAdapter(adapter);
     }
