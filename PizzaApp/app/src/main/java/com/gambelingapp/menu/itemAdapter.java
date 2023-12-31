@@ -25,7 +25,7 @@ class itemAdapter extends RecyclerView.Adapter<itemHolder>{
     @NonNull
     @Override
     public itemHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.pizza_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.menu_item, parent, false);
         return new itemHolder(view);
 
     }

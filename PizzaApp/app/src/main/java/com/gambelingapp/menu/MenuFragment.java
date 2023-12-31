@@ -45,5 +45,13 @@ public class MenuFragment extends Fragment {
             }
         });
 
+        ImageButton soup = view.findViewById(R.id.soupBtn);
+        soup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_menuFragment_to_soupMenuFragment);
+            }
+        });
+
     }
 }

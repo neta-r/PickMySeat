@@ -17,9 +17,16 @@
         <action
             android:id="@+id/action_menuFragment_to_pastaMenuFragment"
             app:destination="@id/pastaMenuFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_soupMenuFragment"
+            app:destination="@id/soupMenuFragment" />
     </fragment>
     <fragment
         android:id="@+id/pastaMenuFragment"
         android:name="com.gambelingapp.menu.pastaMenuFragment"
         android:label="pastaMenuFragment" />
+    <fragment
+        android:id="@+id/soupMenuFragment"
+        android:name="com.gambelingapp.menu.soupMenuFragment"
+        android:label="soupMenuFragment" />
 </navigation>
