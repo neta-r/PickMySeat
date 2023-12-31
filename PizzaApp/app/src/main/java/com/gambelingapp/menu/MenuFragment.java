@@ -61,5 +61,14 @@ public class MenuFragment extends Fragment {
             }
         });
 
+
+        ImageButton drink = view.findViewById(R.id.drinkBtn);
+        drink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_menuFragment_to_mainDrinkFragment);
+            }
+        });
+
     }
 }

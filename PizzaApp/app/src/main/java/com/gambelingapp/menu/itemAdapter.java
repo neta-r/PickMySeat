@@ -11,7 +11,7 @@ import com.gambelingapp.R;
 
 import java.util.ArrayList;
 
-class itemAdapter extends RecyclerView.Adapter<itemHolder>{
+public class itemAdapter extends RecyclerView.Adapter<itemHolder>{
     ArrayList<String> itemNames;
     ArrayList<Integer> itemImages;
     ArrayList<String> itemPrices;

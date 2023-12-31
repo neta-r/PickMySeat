@@ -5,7 +5,7 @@
     app:startDestination="@id/menuFragment">
     <fragment
         android:id="@+id/pizzaMenuFragment"
-        android:name="com.gambelingapp.menu.pizzaMenuFragment"
+        android:name="com.gambelingapp.menu.food.pizzaMenuFragment"
         android:label="pizzaMenuFragment" />
     <fragment
         android:id="@+id/menuFragment"
@@ -23,17 +23,24 @@
         <action
             android:id="@+id/action_menuFragment_to_dessertMenuFragment"
             app:destination="@id/dessertMenuFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_mainDrinkFragment"
+            app:destination="@id/mainDrinkFragment" />
     </fragment>
     <fragment
         android:id="@+id/pastaMenuFragment"
-        android:name="com.gambelingapp.menu.pastaMenuFragment"
+        android:name="com.gambelingapp.menu.food.pastaMenuFragment"
         android:label="pastaMenuFragment" />
     <fragment
         android:id="@+id/soupMenuFragment"
-        android:name="com.gambelingapp.menu.soupMenuFragment"
+        android:name="com.gambelingapp.menu.food.soupMenuFragment"
         android:label="soupMenuFragment" />
     <fragment
         android:id="@+id/dessertMenuFragment"
-        android:name="com.gambelingapp.menu.dessertMenuFragment"
+        android:name="com.gambelingapp.menu.food.dessertMenuFragment"
         android:label="dessertMenuFragment" />
+    <fragment
+        android:id="@+id/mainDrinkFragment"
+        android:name="com.gambelingapp.menu.drinks.mainDrinkFragment"
+        android:label="mainDrinkFragment" />
 </navigation>
