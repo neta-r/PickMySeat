@@ -25,11 +25,11 @@ public class soupMenuFragment extends Fragment {
     LinearLayoutManager linearLayoutManager;
     itemAdapter adapter;
     public soupMenuFragment() {
-        super(R.layout.fragment_soup);
+        super(R.layout.fragment_menu_item);
     }
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
-        rv = view.findViewById(R.id.soupMenu);
+        rv = view.findViewById(R.id.itemMenu);
         setSoupNames();
         setSoupPrices();
         setSoupImages();

@@ -24,11 +24,11 @@ public class beerFragment extends Fragment {
     LinearLayoutManager linearLayoutManager;
     itemAdapter adapter;
     public beerFragment() {
-        super(R.layout.fragment_beer);
+        super(R.layout.fragment_menu_item);
     }
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
-        rv = view.findViewById(R.id.beerMenu);
+        rv = view.findViewById(R.id.itemMenu);
         setDrinkNames();
         setDrinkPrices();
         setDrinkImages();

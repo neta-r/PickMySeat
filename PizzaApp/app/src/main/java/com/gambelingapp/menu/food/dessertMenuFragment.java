@@ -25,11 +25,11 @@ public class dessertMenuFragment extends Fragment {
     LinearLayoutManager linearLayoutManager;
     itemAdapter adapter;
     public dessertMenuFragment() {
-        super(R.layout.fragment_dessert);
+        super(R.layout.fragment_menu_item);
     }
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
-        rv = view.findViewById(R.id.dessertMenu);
+        rv = view.findViewById(R.id.itemMenu);
         setDessertNames();
         setDessertPrices();
         setDessertImages();

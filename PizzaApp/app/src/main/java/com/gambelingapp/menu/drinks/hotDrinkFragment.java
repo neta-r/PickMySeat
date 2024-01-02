@@ -24,11 +24,11 @@ public class hotDrinkFragment extends Fragment {
     LinearLayoutManager linearLayoutManager;
     itemAdapter adapter;
     public hotDrinkFragment() {
-        super(R.layout.fragment_hot_drink);
+        super(R.layout.fragment_menu_item);
     }
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
-        rv = view.findViewById(R.id.hotDrinkMenu);
+        rv = view.findViewById(R.id.itemMenu);
         setDrinkNames();
         setDrinkPrices();
         setDrinkImages();

@@ -24,11 +24,11 @@ public class pastaMenuFragment extends Fragment {
     LinearLayoutManager linearLayoutManager;
     itemAdapter adapter;
     public pastaMenuFragment() {
-        super(R.layout.fragment_pasta);
+        super(R.layout.fragment_menu_item);
     }
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
-        rv = view.findViewById(R.id.pastaMenu);
+        rv = view.findViewById(R.id.itemMenu);
         setPastaNames();
         setPastaPrices();
         setPastaImages();

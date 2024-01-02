@@ -25,11 +25,11 @@ public class pizzaMenuFragment extends Fragment {
     LinearLayoutManager linearLayoutManager;
     itemAdapter adapter;
     public pizzaMenuFragment() {
-        super(R.layout.fragment_pizza);
+        super(R.layout.fragment_menu_item);
     }
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
-        rv = view.findViewById(R.id.pizzaMenu);
+        rv = view.findViewById(R.id.itemMenu);
         setPizzaNames();
         setPizzaPrices();
         setPizzaImages();

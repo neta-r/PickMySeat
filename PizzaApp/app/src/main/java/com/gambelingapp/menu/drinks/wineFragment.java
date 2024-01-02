@@ -24,11 +24,11 @@ public class wineFragment  extends Fragment {
     LinearLayoutManager linearLayoutManager;
     itemAdapter adapter;
     public wineFragment() {
-        super(R.layout.fragment_wine);
+        super(R.layout.fragment_menu_item);
     }
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
-        rv = view.findViewById(R.id.wineMenu);
+        rv = view.findViewById(R.id.itemMenu);
         setDrinkNames();
         setDrinkPrices();
         setDrinkImages();

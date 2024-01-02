@@ -24,11 +24,11 @@ public class softDrinkFragment extends Fragment {
     LinearLayoutManager linearLayoutManager;
     itemAdapter adapter;
     public softDrinkFragment() {
-        super(R.layout.fragment_soft_drink);
+        super(R.layout.fragment_menu_item);
     }
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
-        rv = view.findViewById(R.id.softDrinkMenu);
+        rv = view.findViewById(R.id.itemMenu);
         setDrinkNames();
         setDrinkPrices();
         setDrinkImages();
