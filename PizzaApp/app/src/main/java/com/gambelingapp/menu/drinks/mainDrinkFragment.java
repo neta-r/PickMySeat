@@ -22,11 +22,37 @@ public class mainDrinkFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ImageButton softDrinkBtn = view.findViewById(R.id.softDrinkBtn);
-//        softDrinkBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
+        softDrinkBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_mainDrinkFragment_to_softDrinkFragment);
+            }
+        });
+        ImageButton horDrinkBtn = view.findViewById(R.id.hotDrinkBtn);
+
+        horDrinkBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_mainDrinkFragment_to_hotDrinkFragment);
+            }
+        });
+        ImageButton wineBtn = view.findViewById(R.id.wineBtn);
+
+        wineBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_mainDrinkFragment_to_wineFragment);
+            }
+        });
+
+        ImageButton beerBtn = view.findViewById(R.id.beerBtn);
+
+        beerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_mainDrinkFragment_to_beerFragment);
+            }
+        });
+
     }
 }

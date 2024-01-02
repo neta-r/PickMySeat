@@ -42,5 +42,34 @@
     <fragment
         android:id="@+id/mainDrinkFragment"
         android:name="com.gambelingapp.menu.drinks.mainDrinkFragment"
-        android:label="mainDrinkFragment" />
+        android:label="mainDrinkFragment" >
+        <action
+            android:id="@+id/action_mainDrinkFragment_to_hotDrinkFragment"
+            app:destination="@id/hotDrinkFragment" />
+        <action
+            android:id="@+id/action_mainDrinkFragment_to_beerFragment"
+            app:destination="@id/beerFragment" />
+        <action
+            android:id="@+id/action_mainDrinkFragment_to_softDrinkFragment"
+            app:destination="@id/softDrinkFragment" />
+        <action
+            android:id="@+id/action_mainDrinkFragment_to_wineFragment"
+            app:destination="@id/wineFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/hotDrinkFragment"
+        android:name="com.gambelingapp.menu.drinks.hotDrinkFragment"
+        android:label="hotDrinkFragment" />
+    <fragment
+        android:id="@+id/beerFragment"
+        android:name="com.gambelingapp.menu.drinks.beerFragment"
+        android:label="beerFragment" />
+    <fragment
+        android:id="@+id/softDrinkFragment"
+        android:name="com.gambelingapp.menu.drinks.softDrinkFragment"
+        android:label="softDrinkFragment" />
+    <fragment
+        android:id="@+id/wineFragment"
+        android:name="com.gambelingapp.menu.drinks.wineFragment"
+        android:label="wineFragment" />
 </navigation>
