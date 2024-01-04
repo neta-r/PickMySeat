@@ -10,19 +10,25 @@
 
 ### How does it work?
 Pick the date and the time, enter your name and amount of people and the app will show you all the available seats!
-<img src="https://github.com/neta-r/PizzaApp/assets/69470263/a1b2d35d-8563-4c78-91d4-9398c3da1959" width="240" height="550"/>
-<img src="https://github.com/neta-r/PizzaApp/assets/69470263/9a9758c4-2317-4228-a2c2-29cdf4395e72" width="240" height="550"/>
-
-Check out the menu
-<img src="https://github.com/neta-r/PizzaApp/assets/69470263/6a7b1d6a-afcf-4f10-b15b-e6efbc5e3138" width="240" height="550"/>
-<img src="https://github.com/neta-r/PizzaApp/assets/69470263/df9b27cd-7d62-4777-bd72-f1e7c7c984ce" width="240" height="550"/>
-<img src="https://github.com/neta-r/PizzaApp/assets/69470263/5beb6f26-c3b2-4fe4-abdd-cd2f5b1896a0" width="240" height="550"/>
-<img src="https://github.com/neta-r/PizzaApp/assets/69470263/4d98183f-8747-4bbd-a77d-f8c619534db2" width="240" height="550"/>
-<img src="https://github.com/neta-r/PizzaApp/assets/69470263/111ff11b-db08-477a-a700-ada5114734b8" width="240" height="550"/>
+<p align="center">
+  <img src="https://github.com/neta-r/PizzaApp/assets/69470263/a1b2d35d-8563-4c78-91d4-9398c3da1959" width="240" height="550"/>
+  <img src="https://github.com/neta-r/PizzaApp/assets/69470263/9a9758c4-2317-4228-a2c2-29cdf4395e72" width="240" height="550"/>
+</p>
 
 
+You can also take a look at the restaurant varied menu which includes pizzas, pastas, soups, desserts and all kinds of drinks!
+<p align="center">
+  <img src="https://github.com/neta-r/PizzaApp/assets/69470263/6a7b1d6a-afcf-4f10-b15b-e6efbc5e3138" width="240" height="550"/>
+  <img src="https://github.com/neta-r/PizzaApp/assets/69470263/df9b27cd-7d62-4777-bd72-f1e7c7c984ce" width="240" height="550"/>
+</p>
 
+<p align="center">
+  <img src="https://github.com/neta-r/PizzaApp/assets/69470263/5beb6f26-c3b2-4fe4-abdd-cd2f5b1896a0" width="240" height="550"/>
+  <img src="https://github.com/neta-r/PizzaApp/assets/69470263/4d98183f-8747-4bbd-a77d-f8c619534db2" width="240" height="550"/>
+  <img src="https://github.com/neta-r/PizzaApp/assets/69470263/111ff11b-db08-477a-a700-ada5114734b8" width="240" height="550"/>
+</p>
 
+## It has never been easier to book a place to you favorite restaurant!
 
 
 
