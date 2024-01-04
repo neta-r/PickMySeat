@@ -1,7 +1,7 @@
 # Restaurant reservation application
 ##### Android app where you can pick exactly where you would sit!
 -----------
-<p align="center"><img src="https://github.com/neta-r/PizzaApp/assets/69470263/5bdf3b00-33b5-4287-91ed-d0e76fd6209a" /></p>
+<p align="center"><img src="https://github.com/neta-r/PizzaApp/assets/69470263/4fefbd68-4f30-4f73-b3ad-58ea4106abd9" /></p>
 
 -----------
 
